@@ -1,14 +1,9 @@
-import React from 'react';
-import './index.scss';
+import React from "react";
+import "./styles/tailwindStyle.scss";
+import { Home } from "./pages/Home";
 
 function App() {
-    return (
-        <div className="container py-24 mx-auto flex justify-center">
-            <div className="text-4xl">
-                <h1>Hi</h1>
-            </div>
-        </div>
-    );
+  return <Home />;
 }
 
 export default App;
