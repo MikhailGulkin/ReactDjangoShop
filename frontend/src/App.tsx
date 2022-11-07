@@ -1,18 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from "axios";
+import './index.scss';
 
 function App() {
-  const fetchData = async () => {
-    const {data} = await axios.get('http://localhost:8000/product/')
-    console.log(data)
-  }
-  fetchData()
-  return (
-    <div className="App">
-    </div>
-  );
+    return (
+        <div className="container py-24 mx-auto flex justify-center">
+            <div className="text-4xl">
+                <h1>Hi</h1>
+            </div>
+        </div>
+    );
 }
 
 export default App;
