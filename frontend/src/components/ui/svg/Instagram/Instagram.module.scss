@@ -1,0 +1,18 @@
+@import 'src/styles/constants/styleConst.scss';
+.root
+{
+  svg
+  {
+    rect, path
+    {
+          color: darkred !important;
+    }
+    opacity: $opacity-svg;
+
+    &:hover
+    {
+      opacity: 1;
+      transition: $transition-sec-svg;
+    }
+  }
+}

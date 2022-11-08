@@ -1,0 +1,15 @@
+@import 'src/styles/constants/styleConst.scss';
+.root
+{
+  svg
+  {
+    fill: blue !important;
+    opacity: $opacity-svg;
+
+    &:hover
+    {
+      opacity: 1;
+      transition: $transition-sec-svg;
+    }
+  }
+}
