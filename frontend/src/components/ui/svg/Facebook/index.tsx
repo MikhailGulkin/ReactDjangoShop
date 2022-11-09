@@ -1,8 +1,10 @@
 import React from "react";
-import { SvgBase } from "../../../../@types/ui/UiTypes";
+
+// import { SvgBase } from "@/@types/ui/UiSvgTypes";
+import { SvgBase } from "@/@types/ui/UiSvgTypes";
 import style from "./Facebook.module.scss";
 
-export const Facebook: React.FC<SvgBase> = ({  width, height }) => {
+export const Facebook: React.FC<SvgBase> = ({ width, height }) => {
   return (
     <a href="" className={`cursor-pointer ${style.root}`}>
       <svg

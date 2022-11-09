@@ -1,10 +1,10 @@
 import React from "react";
-import { SvgBase } from "../../../../@types/ui/UiTypes";
+import { SvgBase } from "@/@types/ui/UiSvgTypes";
 import style from "./LinkedIn.module.scss";
 
 export const LinkedIn: React.FC<SvgBase> = ({ stringClass, width, height }) => {
   return (
-    <a href="" className={`${stringClass} ${style.root}`}>
+    <a href="" className={`${stringClass}  ${style.root}`}>
       <svg
         fill="currentColor"
         stroke="currentColor"

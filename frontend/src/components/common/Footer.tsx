@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { paths } from "../../routing/config";
 
-import { Logo } from "../ui/svg/Logo";
+import { paths } from "@/routing/config";
+
 import { Facebook } from "../ui/svg/Facebook";
-import { Twitter } from "../ui/svg/Twitter";
 import { Instagram } from "../ui/svg/Instagram";
+import { Logo } from "../ui/svg/Logo";
 import { LinkedIn } from "../ui/svg/LinkedIn";
+import { Twitter } from "../ui/svg/Twitter";
 
 export const Footer: React.FC = () => {
   const svgConsts = {
@@ -37,7 +38,7 @@ export const Footer: React.FC = () => {
             </a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <Facebook {...svgConsts} />
+            <Facebook width={svgConsts.width} height={svgConsts.height} />
             <Twitter {...svgConsts} />
             <Instagram {...svgConsts} />
             <LinkedIn {...svgConsts} />
