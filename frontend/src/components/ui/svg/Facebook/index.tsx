@@ -1,7 +1,6 @@
 import React from "react";
 
-// import { SvgBase } from "@/@types/ui/UiSvgTypes";
-import { SvgBase } from "@/@types/ui/UiSvgTypes";
+import { SvgBase } from "@/@types/ui/UiSvg";
 import style from "./Facebook.module.scss";
 
 export const Facebook: React.FC<SvgBase> = ({ width, height }) => {

@@ -20,8 +20,8 @@ export const Header: React.FC = () => {
           className="md:ml-auto md:ml-4 md:py-1 md:pl-4
           flex flex-wrap items-center text-base justify-center"
         >
-          <Link to="" className="mr-5 hover:text-gray-900">
-            First Link
+          <Link to={paths.shop} className="mr-5 hover:text-gray-900">
+            Shop
           </Link>
           <Link to="" className="mr-5 hover:text-gray-900">
             Second Link

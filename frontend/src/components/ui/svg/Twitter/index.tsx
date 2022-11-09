@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./Twitter.module.scss";
-import { SvgBase } from "@/@types/ui/UiSvgTypes";
+import { SvgBase } from "@/@types/ui/UiSvg";
 
 export const Twitter: React.FC<SvgBase> = ({ stringClass, width, height }) => {
   return (

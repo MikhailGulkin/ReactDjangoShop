@@ -1,4 +1,5 @@
-export  const paths = {
-    main:'/',
-    any:'*'
-}
+export const paths = {
+  main: "/",
+  shop: "shop",
+  any: "*",
+};

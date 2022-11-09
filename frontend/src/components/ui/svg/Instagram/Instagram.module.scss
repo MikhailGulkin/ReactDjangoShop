@@ -1,18 +1,27 @@
 @import 'src/styles/constants/styleConst.scss';
+
+.header-shape-gradient
+{
+  --color-stop: #f12c06;
+  --color-bot: #faed34;
+}
+
 .root
 {
   svg
   {
-    rect, path
-    {
-          color: darkred !important;
-    }
     opacity: $opacity-svg;
 
     &:hover
     {
       opacity: 1;
-      transition: $transition-sec-svg;
+
+      rect, path
+      {
+        color: fuchsia !important;
+        transition: $transition-sec-svg;
+
+      }
     }
   }
 }

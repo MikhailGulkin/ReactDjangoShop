@@ -4,13 +4,14 @@
   svg
   {
 
-    fill: forestgreen !important;
     opacity: $opacity-svg;
 
     &:hover
     {
       opacity: 1;
       transition: $transition-sec-svg;
+      fill: #6494ee !important;
+
     }
   }
 }
