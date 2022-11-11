@@ -23,11 +23,11 @@ export const Header: React.FC = () => {
           <Link to={paths.shop} className="mr-5 hover:text-gray-900">
             Shop
           </Link>
-          <Link to="" className="mr-5 hover:text-gray-900">
-            Second Link
+          <Link to={paths.login} className="mr-5 hover:text-gray-900">
+            Login
           </Link>
-          <Link to="" className="mr-5 hover:text-gray-900">
-            Third Link
+          <Link to={paths.signup} className="mr-5 hover:text-gray-900">
+            Signup
           </Link>
           <Link to="" className="mr-5 hover:text-gray-900">
             Fourth Link

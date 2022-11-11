@@ -1,6 +1,6 @@
 from pathlib import Path
-
 from dotenv import load_dotenv
+from datetime import timedelta
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,11 +29,15 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
+    'users',
+    'staff',
+    'product',
 ]
 
 THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
+    'drf_spectacular',
     'djoser',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -91,7 +95,10 @@ DATABASES = {
             'PORT': os.getenv('DB_PORT'),
         }
 }
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
@@ -121,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTH_USER_MODEL = 'users.CustomUser'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -135,6 +142,8 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Core/static/media')
+MEDIA_URL = 'media/'
 
 STATIC_URL = 'static/'
 
@@ -145,12 +154,33 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REST Settings
 REST_FRAMEWORK = {
-    # 'DEFAULT_AUTHENTICATION_CLASSES':
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-        # 'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_PAGINATION_CLASS': "rest_framework.pagination.LimitOffsetPagination",
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES':
+        [
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+
+        ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    #     # 'rest_framework.permissions.AllowAny',
+    # ],
+    'DEFAULT_PAGINATION_CLASS':
+        "rest_framework.pagination.LimitOffsetPagination",
     'PAGE_SIZE': 10,
+}
+# JWT
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+}
+DJOSER = {
+    'LOGIN_FIELD': 'email',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'DjangoReactShop',
+    'DESCRIPTION': 'Api for Shop',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
