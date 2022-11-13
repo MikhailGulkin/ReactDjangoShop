@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductTShort } from "@/@types/pages/Product";
 import { MainItems } from "@/components/pages/Home/MainItems";
-import { MyItemsSkeleton } from "@/components/pages/Home/MainItems/Skeleton";
+import { ItemsSkeleton } from "@/components/pages/Home/MainItems/Skeleton";
 
 type MainPartType = {
   styleList: string[];
@@ -9,11 +9,17 @@ type MainPartType = {
 };
 export const MainPart: React.FC<MainPartType> = ({ styleList, clothes }) => {
   const SkeletonArr = [
-    styleList.map((obj) => <MyItemsSkeleton dividerSize={obj ? 1.5 : 1} />),
+    styleList.map((obj, index) => (
+      <ItemsSkeleton key={index} dividerSize={obj ? 1.5 : 1} />
+    )),
   ];
   const MainItemsArr = [
     clothes.map((obj, index) => (
-      <MainItems stringClass={styleList[index]} props={clothes[index]} />
+      <MainItems
+        key={obj.pk}
+        stringClass={styleList[index]}
+        props={clothes[index]}
+      />
     )),
   ];
   return (

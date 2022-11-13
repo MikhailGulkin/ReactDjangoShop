@@ -4,7 +4,7 @@ import ContentLoader from "react-content-loader";
 type SkeletonType = {
   dividerSize: number;
 };
-export const MyItemsSkeleton: React.FC<SkeletonType> = ({ dividerSize }) => (
+export const ItemsSkeleton: React.FC<SkeletonType> = ({ dividerSize }) => (
   <ContentLoader
     speed={2}
     width={176}

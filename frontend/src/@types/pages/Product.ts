@@ -1,7 +1,12 @@
+type albumImageType = {
+  black: string[];
+  green: string[];
+  blue: string[];
+};
 export interface ProductTShort {
   pk: number;
   title: string;
-  clothes_image: string;
+  album_images: albumImageType;
   price: number;
   discount: number;
   total_price: number;

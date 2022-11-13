@@ -12,8 +12,10 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 
+    # project endpoints
     path('users/', include('users.urls')),
-    path('product/', include('product.urls')),
+    path('products/', include('product.urls')),
+    path('staff/', include('staff.urls')),
 ]
 urlpatterns += [
 

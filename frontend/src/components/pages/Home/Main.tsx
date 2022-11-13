@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { MainItems } from "@/components/pages/Home/MainItems";
 import axios from "axios";
 import { ProductTShort } from "@/@types/pages/Product";
 import { MainPart } from "@/components/common/MainPart";
@@ -9,9 +8,9 @@ export const Main: React.FC = () => {
   const [clothes, setClothes] = useState<ProductTShort[]>([]);
   const getClothes = async () => {
     const { data } = await axios.get(
-      "http://localhost:8000/product/all-t_shorts"
+      "http://localhost:8000/products/all-t_shorts"
     );
-    setClothes(data?.results);
+    setClothes(data.results);
   };
   React.useEffect(() => {
     getClothes();
@@ -45,10 +44,15 @@ export const Main: React.FC = () => {
           </div>
         </div>
         <div className="flex space-x-6 items-center  flex-grow justify-center w-1/2">
-          {[2, 3, 2].map((step, index) => (
+          {Object.entries({ 0: 2, 2: 5, 5: 7 }).map((items, index) => (
             <MainPart
-              styleList={step === 3 ? ["md:h-44", "", "md:h-44"] : ["", ""]}
-              clothes={clothes.slice(index, index + step)}
+              key={index}
+              styleList={
+                items[1] - parseInt(items[0]) === 3
+                  ? ["md:h-44", "", "md:h-44"]
+                  : ["", ""]
+              }
+              clothes={clothes.slice(parseInt(items[0]), items[1])}
             />
           ))}
         </div>
