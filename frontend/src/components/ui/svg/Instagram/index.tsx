@@ -1,8 +1,8 @@
 import React from "react";
 
-import style from "./Instagram.module.scss";
-
 import { SvgBase } from "@/@types/ui/UiSvg";
+
+import style from "./Instagram.module.scss";
 
 export const Instagram: React.FC<SvgBase> = ({
   stringClass,

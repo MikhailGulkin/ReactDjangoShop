@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { paths } from "@/routing/config";
 
 export const Login: React.FC = () => {

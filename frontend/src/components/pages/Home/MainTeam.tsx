@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Staff } from "@/components/pages/Home/Staff";
-import { StaffType } from "@/@types/pages/Staff";
 import axios from "axios";
+
+import { StaffType } from "@/@types/pages/Staff";
+
+import { Staff } from "@/components/pages/Home/Staff";
 import { StaffSkeleton } from "@/components/pages/Home/Staff/Skeleton";
 
 export const MainTeam: React.FC = () => {

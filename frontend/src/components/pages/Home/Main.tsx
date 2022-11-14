@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-
 import axios from "axios";
+
 import { ProductTShort } from "@/@types/pages/Product";
+
 import { MainPart } from "@/components/common/MainPart";
 
 export const Main: React.FC = () => {

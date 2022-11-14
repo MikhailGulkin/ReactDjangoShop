@@ -1,4 +1,5 @@
 import React from "react";
+
 import { SvgBase } from "@/@types/ui/UiSvg";
 
 export const Logo: React.FC<SvgBase> = ({ width = 40, height = 40 }) => {

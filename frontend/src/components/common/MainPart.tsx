@@ -1,5 +1,7 @@
 import React from "react";
+
 import { ProductTShort } from "@/@types/pages/Product";
+
 import { MainItems } from "@/components/pages/Home/MainItems";
 import { ItemsSkeleton } from "@/components/pages/Home/MainItems/Skeleton";
 

@@ -6,13 +6,14 @@ import { Facebook } from "@/components/ui/svg/Facebook";
 import { Twitter } from "@/components/ui/svg/Twitter";
 import { Qiscus } from "@/components/ui/svg/Qiscus";
 import { Heart } from "@/components/ui/svg/Heart";
+import { Features } from "@/components/ui/svg/Features";
+
+import { SizeOptions } from "@/components/pages/Clothes/SizeOptions";
+import { ColorButtons } from "@/components/pages/Clothes/ColorButtons";
 
 import { ProductTShort } from "@/@types/pages/Product";
-import { Arrow } from "@/components/ui/svg/Arrow";
-import { Features } from "@/components/ui/svg/Features";
 import { useAppDispatch } from "@/redux/store";
 import { addItem } from "@/redux/cart/slice";
-import { ColorButton } from "@/components/pages/Clothes/ColorButton";
 
 export const Clothes: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -69,28 +70,8 @@ export const Clothes: React.FC = () => {
               </ul>
             </div>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
-              <div className="flex">
-                <span className="mr-3">Color</span>
-                {["bg-black", "bg-blue-600", "bg-green-500"].map(
-                  (obj, index) => (
-                    <ColorButton key={index} stringClass={obj} />
-                  )
-                )}
-              </div>
-              <div className="flex ml-6 items-center">
-                <span className="mr-3">Size</span>
-                <div className="relative">
-                  <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
-                    <option>SM</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                  </select>
-                  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                    <Arrow />
-                  </span>
-                </div>
-              </div>
+              <ColorButtons />
+              <SizeOptions />
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">

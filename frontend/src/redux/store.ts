@@ -3,9 +3,10 @@ import { configureStore } from "@reduxjs/toolkit";
 // import authSlice from "./auth/slice";
 import { useDispatch } from "react-redux";
 import cart from "./cart/slice";
+import productProperties from "./productProperties/slice";
 
 export const store = configureStore({
-  reducer: { cart },
+  reducer: { cart, productProperties },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

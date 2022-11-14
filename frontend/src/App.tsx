@@ -3,8 +3,6 @@ import { Route, Routes } from "react-router-dom";
 
 import { paths } from "./routing/config";
 
-import "./styles/tailwindStyle.scss";
-
 import { MainLayout } from "./layouts/MainLayout";
 
 import { Home } from "@/pages/Home";
@@ -12,6 +10,8 @@ import { Shop } from "@/pages/Shop";
 import { Clothes } from "@/pages/Clothes";
 import { Login } from "@/pages/Login";
 import { Signup } from "@/pages/Signup";
+
+import "./styles/tailwindStyle.scss";
 
 function App() {
   return (

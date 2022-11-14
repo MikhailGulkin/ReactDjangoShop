@@ -1,13 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Logo } from "../ui/svg/Logo";
+import { paths } from "@/routing/config";
 
+import { cartSelector } from "@/redux/cart/selectors";
+
+import { Logo } from "@/components/ui/svg/Logo";
 import { Cart } from "@/components/ui/svg/Cart";
 
-import { paths } from "@/routing/config";
-import { useSelector } from "react-redux";
-import { cartSelector } from "@/redux/cart/selectors";
 
 export const Header: React.FC = () => {
   const { items } = useSelector(cartSelector);

@@ -1,9 +1,10 @@
 import React from "react";
-
-import style from "./MainItems.module.scss";
-import { ProductTShort } from "@/@types/pages/Product";
 import { Link } from "react-router-dom";
 import { paths } from "@/routing/config";
+
+import { ProductTShort } from "@/@types/pages/Product";
+
+import style from "./MainItems.module.scss";
 
 type Props = {
   stringClass: String;

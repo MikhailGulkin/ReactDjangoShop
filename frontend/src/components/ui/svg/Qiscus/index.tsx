@@ -1,8 +1,10 @@
 import React from "react";
-import {SvgBase} from "@/@types/ui/UiSvg";
-import style from './Qiscus.module.scss'
 
-export const Qiscus: React.FC<SvgBase> = ({stringClass, width, height}) => {
+import { SvgBase } from "@/@types/ui/UiSvg";
+
+import style from "./Qiscus.module.scss";
+
+export const Qiscus: React.FC<SvgBase> = ({ stringClass, width, height }) => {
   return (
     <a href="" className={`${stringClass} ${style.root}`}>
       <svg
@@ -20,4 +22,3 @@ export const Qiscus: React.FC<SvgBase> = ({stringClass, width, height}) => {
     </a>
   );
 };
-
