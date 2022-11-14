@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartItemType, CartSliceState } from "@/redux/cart/type";
+import { getItemsLS, setItemsLS } from "@/redux/cart/service";
 
 const initialState: CartSliceState = {
-  items: [],
-  totalPrice: 0,
+  ...getItemsLS(),
 };
 
 const cartSlice = createSlice({
@@ -19,6 +19,7 @@ const cartSlice = createSlice({
         findItem.count++;
       }
       state.totalPrice += action.payload.price;
+      setItemsLS(state.items);
     },
   },
 });
