@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
             Home
           </Link>
         </nav>
-        <Link className="relative" to="/cart">
+        <Link className="relative mr-11" to="/cart">
           <Cart />
           {items.length > 0 && (
             <div className="absolute top-0 right-0 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">

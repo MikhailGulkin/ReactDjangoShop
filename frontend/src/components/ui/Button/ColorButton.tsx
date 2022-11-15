@@ -9,6 +9,7 @@ import { ColorTShortEnum } from "@/redux/productProperties/type";
 import { useParams } from "react-router-dom";
 
 import { hasColor } from "@/utils/hasColor";
+import {defineProductIdFunc} from "@/utils/defineProductId";
 
 type ColorButtonType = {
   stringClass: string;
@@ -20,7 +21,7 @@ export const ColorButton: React.FC<ColorButtonType> = ({
   colorBtn,
 }) => {
   const { productId } = useParams();
-  const defineProductId = productId ? parseInt(productId) : -1;
+  const defineProductId = defineProductIdFunc(productId);
   const { propertiesList } = useSelector(productPropertiesSelector);
 
   const propertiesEle = hasColor(propertiesList, defineProductId);
@@ -28,11 +29,16 @@ export const ColorButton: React.FC<ColorButtonType> = ({
   let activeCls;
   if (propertiesEle)
     activeCls = colorBtn === propertiesEle.color ? " border-amber-400" : "";
-  else {
+  else
     activeCls = colorBtn === ColorTShortEnum.BLACK ? "border-amber-400" : "";
-  }
+
   const setColor = () => {
-    dispatch(setActiveColor({ color: colorBtn, productId: defineProductId }));
+    dispatch(
+      setActiveColor({
+        color: colorBtn,
+        productId: defineProductId,
+      })
+    );
   };
   return (
     <button

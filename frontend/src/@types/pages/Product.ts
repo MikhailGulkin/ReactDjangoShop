@@ -1,4 +1,4 @@
-type albumImageType = {
+export type albumImageType = {
   black: string[];
   green: string[];
   blue: string[];

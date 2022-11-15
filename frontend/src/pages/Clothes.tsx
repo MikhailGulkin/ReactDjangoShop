@@ -14,11 +14,14 @@ import { ColorButtons } from "@/components/pages/Clothes/ColorButtons";
 import { ProductTShort } from "@/@types/pages/Product";
 import { useAppDispatch } from "@/redux/store";
 import { addItem } from "@/redux/cart/slice";
+import {ImageBlock} from "@/components/pages/Clothes/ImageBlock";
+import {defineProductIdFunc} from "@/utils/defineProductId";
 
 export const Clothes: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const { productId } = useParams();
+  const defineProductId = defineProductIdFunc(productId)
   const [item, setItem] = useState<ProductTShort>();
   const getItem = async () => {
     const { data } = await axios.get(
@@ -37,11 +40,7 @@ export const Clothes: React.FC = () => {
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <img
-            alt="ecommerce"
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-            src={item?.album_images.black[0]}
-          />
+            <ImageBlock album_images={item?.album_images} pk={defineProductId}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {item?.title}
