@@ -6,10 +6,10 @@ export type albumImageType = {
 export interface ProductTShort {
   pk: number;
   title: string;
-  album_images: albumImageType;
+  albumImages: albumImageType;
   price: number;
   discount: number;
-  total_price: number;
+  totalPrice: number;
   size: string;
   description: string;
   features: string[];

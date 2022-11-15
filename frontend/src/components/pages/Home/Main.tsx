@@ -9,14 +9,13 @@ export const Main: React.FC = () => {
   const [clothes, setClothes] = useState<ProductTShort[]>([]);
   const getClothes = async () => {
     const { data } = await axios.get(
-      "http://localhost:8000/products/all-t_shorts"
+      "http://localhost:8000/products/all-t_shorts/"
     );
     setClothes(data.results);
   };
   React.useEffect(() => {
     getClothes();
   }, []);
-
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 pt-24 flex-col xl:flex-row justify-center items-center">

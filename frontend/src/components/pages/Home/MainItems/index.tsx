@@ -5,13 +5,18 @@ import { paths } from "@/routing/config";
 import { ProductTShort } from "@/@types/pages/Product";
 
 import style from "./MainItems.module.scss";
+import {useSelector} from "react-redux";
+import {productPropertiesSelector} from "@/redux/productProperties/selectors";
+import {returnValidColor} from "@/utils/hasColor";
 
 type Props = {
   stringClass: String;
   props: ProductTShort;
 };
 export const MainItems: React.FC<Props> = ({ stringClass, props }) => {
-  const { album_images, pk } = props;
+  const { albumImages, pk } = props;
+  const { propertiesList } = useSelector(productPropertiesSelector);
+
   return (
     <Link to={paths.itemsPage(pk)}>
       <div
@@ -20,7 +25,7 @@ export const MainItems: React.FC<Props> = ({ stringClass, props }) => {
         <img
           className="object-cover object-center rounded"
           alt="hero"
-          src={album_images.black[0]}
+          src={returnValidColor(propertiesList, pk, albumImages)}
         />
       </div>
     </Link>

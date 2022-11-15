@@ -40,7 +40,7 @@ export const Clothes: React.FC = () => {
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <ImageBlock album_images={item?.album_images} pk={defineProductId}/>
+            <ImageBlock albumImages={item?.albumImages} pk={defineProductId}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {item?.title}
@@ -74,7 +74,7 @@ export const Clothes: React.FC = () => {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">
-                ${item?.total_price}
+                ${item?.totalPrice}
               </span>
               <button
                 onClick={onClickAdd}

@@ -1,25 +1,27 @@
 import React from "react";
-import { albumImageType } from "@/@types/pages/Product";
-import { hasColor } from "@/utils/hasColor";
 import { useSelector } from "react-redux";
+
+import { albumImageType } from "@/@types/pages/Product";
+
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
+import { returnValidColor } from "@/utils/hasColor";
+
 type ImageBlockType = {
-  album_images: albumImageType | undefined;
+  albumImages: albumImageType | undefined;
   pk: number;
 };
-export const ImageBlock: React.FC<ImageBlockType> = ({ album_images, pk }) => {
+export const ImageBlock: React.FC<ImageBlockType> = ({ albumImages, pk }) => {
   const { propertiesList } = useSelector(productPropertiesSelector);
 
-  const colorSize = hasColor(propertiesList, pk);
-  if (!album_images) {
+  if (!albumImages) {
     return <img alt="eccomerce" src="" />;
   }
   return (
     <img
       alt="ecommerce"
       className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-      src={colorSize ? album_images[colorSize.color][0] : album_images.black[0]}
+      src={returnValidColor(propertiesList, pk, albumImages)}
     />
   );
 };

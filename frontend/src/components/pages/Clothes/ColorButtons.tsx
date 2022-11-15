@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ColorButton } from "@/components/ui/Button/ColorButton";
+import { ColorButton } from "@/components/pages/Clothes/ColorButton";
 
 import { ColorTShortEnum } from "@/redux/productProperties/type";
 
