@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from re import findall
+
 size_clothes = [
     ('S', 'S'),
     ('M', 'M'),
@@ -15,6 +16,7 @@ class ImageTShorts(models.Model):
     clothes_image = models.ImageField(
         upload_to='T-Short',
     )
+
     def __str__(self):
         return self.clothes_image.name
 
@@ -33,7 +35,6 @@ class ProductClothesTShort(models.Model):
     title = models.CharField(max_length=200, default='')
     clothes_images = models.ManyToManyField(
         AlbumImageTShorts,
-        null=True
     )
     price = models.FloatField(default=1)
     size = models.CharField(

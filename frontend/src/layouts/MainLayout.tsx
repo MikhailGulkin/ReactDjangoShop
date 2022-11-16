@@ -6,9 +6,9 @@ import { Footer } from "@/components/common/Footer";
 
 export const MainLayout: React.FC = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-screen">
       <Header />
-      <div className="flex-grow">
+      <div className="mb-auto">
         <Outlet />
       </div>
       <Footer />

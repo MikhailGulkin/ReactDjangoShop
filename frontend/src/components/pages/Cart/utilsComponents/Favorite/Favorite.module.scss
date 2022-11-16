@@ -1,0 +1,15 @@
+.buttonHeart
+{
+  border: 2px solid #696666;
+
+  &:hover
+  {
+    cursor: pointer;
+    background-color: gray;
+
+    path
+    {
+      fill: #FFFF;
+    }
+  }
+}

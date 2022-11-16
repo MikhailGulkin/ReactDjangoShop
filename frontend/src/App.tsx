@@ -12,6 +12,7 @@ import { Login } from "@/pages/Login";
 import { Signup } from "@/pages/Signup";
 
 import "./styles/tailwindStyle.scss";
+import { Cart } from "@/pages/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path={paths.main} element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path={paths.shop} element={<Shop />} />
+        <Route path={paths.cart} element={<Cart />} />
         <Route path={paths.itemsPage(":productId")} element={<Clothes />} />
         <Route path={paths.login} element={<Login />} />
         <Route path={paths.signup} element={<Signup />} />

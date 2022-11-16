@@ -1,0 +1,26 @@
+.buttonRemove
+{
+  svg
+  {
+    transform: rotate(45deg);
+
+    path
+    {
+      fill: #696666 !important;
+    }
+  }
+
+  border: 2px solid grey;
+
+  &:hover
+  {
+    cursor: pointer;
+    background-color: #696666;
+
+    path
+    {
+      fill: #FFFF !important;
+    }
+  }
+
+}

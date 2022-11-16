@@ -29,8 +29,15 @@ export const ColorButton: React.FC<ColorButtonType> = ({
   const propertiesEle = hasSizeColor(propertiesList, defineProductId);
   let activeCls;
   if (propertiesEle)
-    activeCls = colorBtn === propertiesEle.color ? " border-amber-400" : "";
-  else activeCls = colorBtn === ColorTShortEnum.BLACK ? "border-amber-400" : "";
+    activeCls =
+      colorBtn === propertiesEle.color
+        ? " border-amber-400"
+        : "border-gray-300";
+  else
+    activeCls =
+      colorBtn === ColorTShortEnum.BLACK
+        ? "border-amber-400"
+        : "border-gray-300";
 
   const setColor = () => {
     dispatch(
@@ -43,7 +50,7 @@ export const ColorButton: React.FC<ColorButtonType> = ({
   return (
     <button
       onClick={setColor}
-      className={`border-2 border-gray-300 mr-1 ${stringClass}  ${activeCls} rounded-full w-6 h-6 focus:outline-none`}
+      className={`border-2  mr-1 ${stringClass}  ${activeCls} rounded-full w-6 h-6 focus:outline-none`}
     ></button>
   );
 };

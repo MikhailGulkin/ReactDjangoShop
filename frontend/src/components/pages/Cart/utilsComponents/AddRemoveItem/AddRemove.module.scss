@@ -1,0 +1,23 @@
+.buttonPlusMinus
+{
+  border: 2px solid #3B5998;
+
+  &:hover
+  {
+    background-color: #3B5998;
+
+    path
+    {
+      fill: #FFFF !important;
+    }
+  }
+
+  path
+  {
+    fill: #3B5998 !important;
+  }
+}
+.fontSize
+{
+  font-size: 20px;
+}

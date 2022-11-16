@@ -58,11 +58,3 @@ class UserProfileTestCase(APITestCase):
         response = self.client.get(reverse('profile', kwargs={'pk': 1}))
         # print(response.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    # заполнить профиль пользователя, который был автоматически создан с использованием сигналов
-    def test_userprofile_profile(self):
-        profile_data = {'first_name': 'I\'m try get all test\'s'}
-        response = self.client.put(reverse('profile', kwargs={'pk': 1}),
-                                   data=profile_data)
-        print(response.data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)

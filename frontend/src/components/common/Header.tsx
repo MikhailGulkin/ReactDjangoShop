@@ -9,7 +9,6 @@ import { cartSelector } from "@/redux/cart/selectors";
 import { Logo } from "@/components/ui/svg/Logo";
 import { Cart } from "@/components/ui/svg/Cart";
 
-
 export const Header: React.FC = () => {
   const { items } = useSelector(cartSelector);
   return (
@@ -43,7 +42,7 @@ export const Header: React.FC = () => {
           <Cart />
           {items.length > 0 && (
             <div className="absolute top-0 right-0 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
-              {items.reduce((partialSum, obj) => partialSum + obj.count, 0)}
+              <h2>{items.length}</h2>
             </div>
           )}
         </Link>

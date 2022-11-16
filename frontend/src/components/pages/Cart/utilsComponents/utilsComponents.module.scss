@@ -1,0 +1,19 @@
+@import 'src/styles/constants/styleConst.scss';
+
+.buttonCircle
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $transition-cart-svg;
+  svg
+  {
+    width: 10px;
+    height: 10px;
+  }
+
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
+}

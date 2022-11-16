@@ -1,0 +1,77 @@
+@import 'src/styles/constants/styleConst.scss';
+
+.cartTopClear
+{
+  color: #B8B6B6;
+  transition: $transition-cart-svg;
+
+  &:hover
+  {
+    cursor: pointer;
+    color: #1c1c1c;
+
+    svg
+    {
+      path
+      {
+
+        fill: #1c1c1c;
+      }
+    }
+  }
+}
+
+.cartTopSvg
+{
+  svg
+  {
+    margin-right: 5px;
+  }
+}
+
+.bottomBtn
+{
+
+
+  padding: 10px 10px;
+  border-radius: 30px;
+
+}
+
+.bottomBtnBack
+{
+  color: #C3C3C3;
+  transition: $transition-cart-svg;
+
+  svg
+  {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+    //fill: black !important;
+
+  }
+
+  &:hover
+  {
+    background-color: black;
+    color: #FFFF;
+  }
+;
+  border: 2px solid gray;
+
+}
+
+.bottomBtnBuy
+{
+  transition: $transition-cart-svg;
+  cursor: pointer;
+  border: #3B5998;
+  background-color: #3B5998;
+  color: #FFFF;
+
+  &:hover
+  {
+    background-color: #355db2;
+  }
+}
