@@ -1,13 +1,16 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 import { paths } from "@/routing/config";
+
+import { useSelector } from "react-redux";
+import { productPropertiesSelector } from "@/redux/productProperties/selectors";
+
+import { returnValidColor } from "@/utils/hasColor";
 
 import { ProductTShort } from "@/@types/pages/Product";
 
 import style from "./MainItems.module.scss";
-import {useSelector} from "react-redux";
-import {productPropertiesSelector} from "@/redux/productProperties/selectors";
-import {returnValidColor} from "@/utils/hasColor";
 
 type Props = {
   stringClass: String;

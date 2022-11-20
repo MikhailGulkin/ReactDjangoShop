@@ -1,5 +1,5 @@
 import { CartItemType } from "@/redux/cart/type";
-import { CalcTotalPrice } from "@/utils/calcTotalPrice";
+import { CalcTotal } from "@/utils/calcTotal";
 
 export const setItemsLS = (items: CartItemType[]) => {
   const json = JSON.stringify(items);
@@ -8,7 +8,7 @@ export const setItemsLS = (items: CartItemType[]) => {
 export const getItemsLS = () => {
   const data = localStorage.getItem("cart");
   const items = data ? JSON.parse(data) : [];
-  const totalPrice = CalcTotalPrice(items);
+  const totalPrice = CalcTotal(items);
   return {
     items: items as CartItemType[],
     totalPrice: totalPrice as number,

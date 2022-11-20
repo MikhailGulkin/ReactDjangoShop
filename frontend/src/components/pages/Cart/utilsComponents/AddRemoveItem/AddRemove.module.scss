@@ -1,7 +1,11 @@
 .buttonPlusMinus
 {
-  border: 2px solid #3B5998;
 
+  border: 2px solid #3B5998;
+  &:disabled
+  {
+    opacity: .4;
+  }
   &:hover
   {
     background-color: #3B5998;

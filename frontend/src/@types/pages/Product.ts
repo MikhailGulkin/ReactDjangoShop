@@ -10,7 +10,6 @@ export interface ProductTShort {
   price: number;
   discount: number;
   totalPrice: number;
-  size: string;
   description: string;
   features: string[];
 }

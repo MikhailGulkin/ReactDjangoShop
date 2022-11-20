@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { ProductTShort } from "@/@types/pages/Product";
-
 import { MainPart } from "@/components/common/MainPart";
+
+import { ProductTShort } from "@/@types/pages/Product";
 
 export const Main: React.FC = () => {
   const [clothes, setClothes] = useState<ProductTShort[]>([]);

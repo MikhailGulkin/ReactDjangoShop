@@ -1,12 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
 import { useSelector } from "react-redux";
-
 import { useAppDispatch } from "@/redux/store";
-
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 import { setActiveColor } from "@/redux/productProperties/slice";
+
 import { ColorTShortEnum } from "@/redux/productProperties/type";
-import { useParams } from "react-router-dom";
 
 import { hasSizeColor } from "@/utils/hasColor";
 import { defineProductIdFunc } from "@/utils/defineProductId";

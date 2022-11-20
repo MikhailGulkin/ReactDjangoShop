@@ -1,14 +1,16 @@
 import React from "react";
-import { Arrow } from "@/components/ui/svg/Arrow";
-
-import { SizeTShortEnum } from "@/redux/productProperties/type";
 import { useParams } from "react-router-dom";
-import { useAppDispatch } from "@/redux/store";
-import { defineProductIdFunc } from "@/utils/defineProductId";
+
 import { useSelector } from "react-redux";
+import { SizeTShortEnum } from "@/redux/productProperties/type";
+import { useAppDispatch } from "@/redux/store";
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
-import { hasSizeColor } from "@/utils/hasColor";
 import { setActiveSize } from "@/redux/productProperties/slice";
+
+import { defineProductIdFunc } from "@/utils/defineProductId";
+import { hasSizeColor } from "@/utils/hasColor";
+
+import { Arrow } from "@/components/ui/svg/Arrow";
 
 export const SizeOptions: React.FC = () => {
   const { productId } = useParams();

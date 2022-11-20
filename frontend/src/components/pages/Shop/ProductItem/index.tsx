@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import { paths } from "@/routing/config";
-import { productPropertiesSelector } from "@/redux/productProperties/selectors";
-import {returnValidColor} from "@/utils/hasColor";
 import { Link } from "react-router-dom";
+
+import { useSelector } from "react-redux";
+import { productPropertiesSelector } from "@/redux/productProperties/selectors";
+
+import { returnValidColor } from "@/utils/hasColor";
 
 import { ProductTShort } from "@/@types/pages/Product";
 
@@ -22,17 +24,13 @@ export const ProductItem: React.FC<ProductTShort> = ({
     >
       <div className="h-72 relative">
         <img
-          src={
-            returnValidColor(propertiesList, pk, albumImages)
-          }
+          src={returnValidColor(propertiesList, pk, albumImages)}
           alt={title}
         />
       </div>
       <div className="h-48 relative">
         <div className="text-2xl pt-4 px-4 font-semibold">{title}</div>
-        <div
-          className="bg-blue-300 font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2  rounded-tl-sm "
-        >
+        <div className="bg-blue-300 font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2  rounded-tl-sm ">
           $<span className="text-lg">{price}</span>
         </div>
       </div>

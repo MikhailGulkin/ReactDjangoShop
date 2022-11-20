@@ -8,6 +8,7 @@ import { cartSelector } from "@/redux/cart/selectors";
 
 import { Logo } from "@/components/ui/svg/Logo";
 import { Cart } from "@/components/ui/svg/Cart";
+import { CalcTotalProduct } from "@/utils/calcTotal";
 
 export const Header: React.FC = () => {
   const { items } = useSelector(cartSelector);
@@ -38,11 +39,11 @@ export const Header: React.FC = () => {
             Home
           </Link>
         </nav>
-        <Link className="relative mr-11" to="/cart">
+        <Link className="relative" to="/cart">
           <Cart />
           {items.length > 0 && (
-            <div className="absolute top-0 right-0 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
-              <h2>{items.length}</h2>
+            <div className="absolute top-0 right-7 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
+              <h2>{CalcTotalProduct(items)}</h2>
             </div>
           )}
         </Link>

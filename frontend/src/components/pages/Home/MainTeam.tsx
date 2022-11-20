@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { StaffType } from "@/@types/pages/Staff";
-
 import { Staff } from "@/components/pages/Home/Staff";
 import { StaffSkeleton } from "@/components/pages/Home/Staff/Skeleton";
+
+import { StaffType } from "@/@types/pages/Staff";
 
 export const MainTeam: React.FC = () => {
   const [staff, setStaff] = useState<StaffType[]>([]);

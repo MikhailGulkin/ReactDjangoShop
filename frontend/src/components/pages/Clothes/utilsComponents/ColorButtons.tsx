@@ -1,11 +1,10 @@
 import React from "react";
 
-import { ColorButton } from "@/components/pages/Clothes/ColorButton";
+import { ColorButton } from "@/components/pages/Clothes/utilsComponents/ColorButton";
 
 import { ColorTShortEnum } from "@/redux/productProperties/type";
 
 export const ColorButtons: React.FC = () => {
-
   return (
     <div className="flex">
       <span className="mr-3">Color</span>

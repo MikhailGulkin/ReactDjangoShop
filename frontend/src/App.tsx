@@ -10,9 +10,9 @@ import { Shop } from "@/pages/Shop";
 import { Clothes } from "@/pages/Clothes";
 import { Login } from "@/pages/Login";
 import { Signup } from "@/pages/Signup";
+import { Cart } from "@/pages/Cart";
 
 import "./styles/tailwindStyle.scss";
-import { Cart } from "@/pages/Cart";
 
 function App() {
   return (
