@@ -2,7 +2,7 @@ import React from "react";
 
 import { ColorButton } from "@/components/pages/Clothes/utilsComponents/ColorButton";
 
-import { ColorTShortEnum } from "@/redux/productProperties/type";
+import { ColorTShirtEnum } from "@/redux/productProperties/type";
 
 export const ColorButtons: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ export const ColorButtons: React.FC = () => {
         <ColorButton
           key={index}
           stringClass={obj}
-          colorBtn={Object.values(ColorTShortEnum)[index]}
+          colorBtn={Object.values(ColorTShirtEnum)[index]}
         />
       ))}
     </div>

@@ -12,7 +12,7 @@ size_clothes = [
 ]
 
 
-class ImageTShorts(models.Model):
+class ImageTShirts(models.Model):
     clothes_image = models.ImageField(
         upload_to='T-Short',
     )
@@ -21,8 +21,8 @@ class ImageTShorts(models.Model):
         return self.clothes_image.name
 
 
-class AlbumImageTShorts(models.Model):
-    album_images = models.ManyToManyField(ImageTShorts)
+class AlbumImageTShirts(models.Model):
+    album_images = models.ManyToManyField(ImageTShirts)
     color = models.CharField(max_length=100)
 
     def __str__(self):
@@ -31,10 +31,10 @@ class AlbumImageTShorts(models.Model):
         return f'{self.color} - {name_t_short[0]}'
 
 
-class ProductClothesTShort(models.Model):
+class ProductClothesTShirt(models.Model):
     title = models.CharField(max_length=200, default='')
     clothes_images = models.ManyToManyField(
-        AlbumImageTShorts,
+        AlbumImageTShirts,
     )
     price = models.FloatField(default=1)
     size = models.CharField(

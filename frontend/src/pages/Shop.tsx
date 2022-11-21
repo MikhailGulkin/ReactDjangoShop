@@ -14,7 +14,7 @@ export const popupList = [
   { name: "alphaBet (DESC)", sortProp: "alphaBet" },
   { name: "alphaBet (ASC)", sortProp: "-alphaBet" },
 ];
-
+export const categories = ["T-short", "Shorts"];
 export const Shop: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(productItemsSelector);
@@ -33,20 +33,20 @@ export const Shop: React.FC = () => {
   return (
     <section className="mx-auto max-w-6xl">
       <div className="py-12 max-w-6xl mx-auto">
-        <div className="flex mb-10">
-          <div className="">
-            <ul>
-              {categories.map((categoryName, index) => (
-                <li
-                  key={index}>
-                  {categoryName}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="flex justify-around mb-10">
+          <ul className="flex items-center justify-center flex-row rounded">
+            {categories.map((categoryName, index) => (
+              <li
+                className="p-2 text-xl font-bold hover:cursor-pointer"
+                key={index}
+              >
+                {categoryName}
+              </li>
+            ))}
+          </ul>
           <button
             onClick={() => setIsVisible(!isVisible)}
-            className="mx-auto flex items-center"
+            className=" flex items-center"
           >
             <span className="group inline-flex justify-center text-xl font-bold text-gray-700 hover:text-gray-900">
               Sort

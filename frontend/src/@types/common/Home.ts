@@ -1,12 +1,12 @@
-import {ProductTShort} from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 
 export type PropsType = {
   stringClass: String;
-  props: ProductTShort;
+  props: ProductTShirt;
 };
 export type MainPartType = {
   styleList: string[];
-  clothes: ProductTShort[];
+  clothes: ProductTShirt[];
 };
 export type SkeletonType = {
   dividerSize: number;

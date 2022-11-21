@@ -3,7 +3,7 @@ export type albumImageType = {
   green: string[];
   blue: string[];
 };
-export interface ProductTShort {
+export interface ProductTShirt {
   pk: number;
   title: string;
   albumImages: albumImageType;

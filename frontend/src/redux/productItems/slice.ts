@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductStatus, ProductSliceState } from "./types";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 import { fetchProducts } from "@/redux/productItems/asyncAction";
 
 const initialState: ProductSliceState = {
@@ -13,7 +13,7 @@ const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    setItems(state, action: PayloadAction<ProductTShort[]>) {
+    setItems(state, action: PayloadAction<ProductTShirt[]>) {
       state.items = action.payload;
     },
   },

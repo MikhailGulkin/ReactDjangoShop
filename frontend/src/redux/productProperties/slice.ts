@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
-  ColorTShortEnum,
+  ColorTShirtEnum,
   PropertiesColorType,
   PropertiesSizeType,
   PropertiesSliceState,
-  SizeTShortEnum,
+  SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
 import {
@@ -32,7 +32,7 @@ const productPropertiesSlice = createSlice({
         state.propertiesList.push({
           id: action.payload.productId,
           color: action.payload.color,
-          size: SizeTShortEnum.S,
+          size: SizeTShirtEnum.S,
         });
       }
       setPropertiesLS(state.propertiesList);
@@ -46,7 +46,7 @@ const productPropertiesSlice = createSlice({
       else {
         state.propertiesList.push({
           id: action.payload.productId,
-          color: ColorTShortEnum.BLACK,
+          color: ColorTShirtEnum.BLACK,
           size: action.payload.size,
         });
       }

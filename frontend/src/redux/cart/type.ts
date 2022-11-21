@@ -1,13 +1,13 @@
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 import {
-  ColorTShortEnum,
-  SizeTShortEnum,
+  ColorTShirtEnum,
+  SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
-export interface CartItemType extends ProductTShort {
+export interface CartItemType extends ProductTShirt {
   count: number;
-  size: SizeTShortEnum;
-  color: ColorTShortEnum;
+  size: SizeTShirtEnum;
+  color: ColorTShirtEnum;
 }
 
 export interface CartSliceState {

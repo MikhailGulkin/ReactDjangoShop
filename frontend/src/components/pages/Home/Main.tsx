@@ -3,10 +3,10 @@ import axios from "axios";
 
 import { MainPart } from "@/components/common/MainPart";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 
 export const Main: React.FC = () => {
-  const [clothes, setClothes] = useState<ProductTShort[]>([]);
+  const [clothes, setClothes] = useState<ProductTShirt[]>([]);
   const getClothes = async () => {
     const { data } = await axios.get(
       "http://localhost:8000/products/all-t_shorts/"

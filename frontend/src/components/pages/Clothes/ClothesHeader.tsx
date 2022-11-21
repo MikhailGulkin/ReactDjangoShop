@@ -5,9 +5,9 @@ import { Twitter } from "@/components/ui/svg/Twitter";
 import { Qiscus } from "@/components/ui/svg/Qiscus";
 import { Features } from "@/components/ui/svg/Features";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 
-export const ClothesHeader: React.FC<ProductTShort> = ({
+export const ClothesHeader: React.FC<ProductTShirt> = ({
   title,
   description,
   features,

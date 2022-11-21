@@ -1,6 +1,6 @@
 import { albumImageType } from "@/@types/pages/Product";
-import { ProductTShort } from "@/@types/pages/Product";
-import { ColorTShortEnum } from "@/redux/productProperties/type";
+import { ProductTShirt } from "@/@types/pages/Product";
+import { ColorTShirtEnum } from "@/redux/productProperties/type";
 
 export type ImageBlockType = {
   albumImages: albumImageType | undefined;
@@ -8,10 +8,10 @@ export type ImageBlockType = {
 };
 
 export type ClothesBottomType = {
-  prop: ProductTShort;
+  prop: ProductTShirt;
   id: number;
 };
 export type ColorButtonType = {
   stringClass: string;
-  colorBtn: ColorTShortEnum;
+  colorBtn: ColorTShirtEnum;
 };

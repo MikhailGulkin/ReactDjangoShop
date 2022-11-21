@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { ImageBlock } from "@/components/pages/Clothes/ImageBlock";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 
 import { defineProductIdFunc } from "@/utils/defineProductId";
 
@@ -15,7 +15,7 @@ export const Clothes: React.FC = () => {
   const { productId } = useParams();
   const defineProductId = defineProductIdFunc(productId);
 
-  const [item, setItem] = useState<ProductTShort>();
+  const [item, setItem] = useState<ProductTShirt>();
 
   const getItem = async () => {
     const { data } = await axios.get(

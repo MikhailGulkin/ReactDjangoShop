@@ -8,9 +8,9 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
 import { returnValidColor } from "@/utils/hasColor";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 
-export const ProductItem: React.FC<ProductTShort> = ({
+export const ProductItem: React.FC<ProductTShirt> = ({
   pk,
   price,
   albumImages,

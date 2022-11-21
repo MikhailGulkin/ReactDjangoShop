@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import ProductClothesTShort, ImageTShorts, AlbumImageTShorts
+from .models import ProductClothesTShirt, ImageTShirts, AlbumImageTShirts
 
 
-admin.site.register(ProductClothesTShort)
-admin.site.register(AlbumImageTShorts)
-admin.site.register(ImageTShorts)
+admin.site.register(ProductClothesTShirt)
+admin.site.register(AlbumImageTShirts)
+admin.site.register(ImageTShirts)

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { SizeTShortEnum } from "@/redux/productProperties/type";
+import { SizeTShirtEnum } from "@/redux/productProperties/type";
 import { useAppDispatch } from "@/redux/store";
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 import { setActiveSize } from "@/redux/productProperties/slice";
@@ -21,10 +21,10 @@ export const SizeOptions: React.FC = () => {
   const { propertiesList } = useSelector(productPropertiesSelector);
   const propertiesEle = hasSizeColor(propertiesList, defineProductId);
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    if (SizeTShortEnum)
+    if (SizeTShirtEnum)
       dispatch(
         setActiveSize({
-          size: event.target.value as SizeTShortEnum,
+          size: event.target.value as SizeTShirtEnum,
           productId: defineProductId,
         })
       );
@@ -38,7 +38,7 @@ export const SizeOptions: React.FC = () => {
           onChange={handleChange}
           className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10"
         >
-          {Object.values(SizeTShortEnum).map((size, index) => (
+          {Object.values(SizeTShirtEnum).map((size, index) => (
             <option value={size} key={index}>
               {size}
             </option>

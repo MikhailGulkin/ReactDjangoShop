@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from .models import ProductClothesTShort
+from .models import ProductClothesTShirt
 
 
-class ProductTShortSerializer(serializers.ModelSerializer):
+class ProductTShirtSerializer(serializers.ModelSerializer):
     totalPrice = serializers.SerializerMethodField(read_only=True)
     albumImages = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
-        model = ProductClothesTShort
+        model = ProductClothesTShirt
         fields = (
             'pk',
             'title',

@@ -1,10 +1,10 @@
-export enum ColorTShortEnum {
+export enum ColorTShirtEnum {
   BLACK = "black",
   BLUE = "blue",
   GREEN = "green",
 }
 
-export enum SizeTShortEnum {
+export enum SizeTShirtEnum {
   S = "S",
   M = "M",
   L = "L",
@@ -13,17 +13,17 @@ export enum SizeTShortEnum {
   XL_3 = "3XL",
 }
 export interface PropertiesColorType {
-  color: ColorTShortEnum;
+  color: ColorTShirtEnum;
   productId: number;
 }
 
 export interface PropertiesSizeType {
-  size: SizeTShortEnum;
+  size: SizeTShirtEnum;
   productId: number;
 }
 export interface PropertiesType {
-  color: ColorTShortEnum;
-  size: SizeTShortEnum;
+  color: ColorTShirtEnum;
+  size: SizeTShirtEnum;
   id: number;
 }
 export interface PropertiesSliceState {

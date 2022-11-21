@@ -5,11 +5,10 @@ import { useSelector } from "react-redux";
 
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
-import {returnValidColors } from "@/utils/hasColor";
+import { returnValidColors } from "@/utils/hasColor";
 
-import {sliderSettings} from "@/components/pages/Clothes/slider-settings";
-import {ImageBlockType} from "@/@types/pages/Clothes";
-
+import { sliderSettings } from "@/components/pages/Clothes/slider-settings";
+import { ImageBlockType } from "@/@types/pages/Clothes";
 
 export const ImageBlock: React.FC<ImageBlockType> = ({ albumImages, pk }) => {
   const { propertiesList } = useSelector(productPropertiesSelector);
@@ -36,7 +35,7 @@ export const ImageBlock: React.FC<ImageBlockType> = ({ albumImages, pk }) => {
               src={obj}
               key={index}
               onClick={() => onClickIndex(index)}
-                alt=""
+              alt=""
             />
           )
         )}

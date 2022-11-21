@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/store";
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 import { setActiveColor } from "@/redux/productProperties/slice";
 
-import { ColorTShortEnum } from "@/redux/productProperties/type";
+import { ColorTShirtEnum } from "@/redux/productProperties/type";
 
 import { hasSizeColor } from "@/utils/hasColor";
 import { defineProductIdFunc } from "@/utils/defineProductId";
@@ -32,7 +32,7 @@ export const ColorButton: React.FC<ColorButtonType> = ({
         : "border-gray-300";
   else
     activeCls =
-      colorBtn === ColorTShortEnum.BLACK
+      colorBtn === ColorTShirtEnum.BLACK
         ? "border-amber-400"
         : "border-gray-300";
 

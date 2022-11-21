@@ -1,10 +1,10 @@
 import {
-  ColorTShortEnum,
-  SizeTShortEnum,
+  ColorTShirtEnum,
+  SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
 export type PkColorSizeType = {
   pk: number;
-  color: ColorTShortEnum;
-  size: SizeTShortEnum;
+  color: ColorTShirtEnum;
+  size: SizeTShirtEnum;
 };

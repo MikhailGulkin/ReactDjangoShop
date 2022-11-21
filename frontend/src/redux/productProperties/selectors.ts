@@ -1,7 +1,7 @@
 import { RootState } from "@/redux/store";
 import {
-  ColorTShortEnum,
-  SizeTShortEnum,
+  ColorTShirtEnum,
+  SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
 export const productPropertiesSelector = (state: RootState) =>
@@ -13,5 +13,5 @@ export const productPropFind = (pk: number) => (state: RootState) => {
   );
   return findEle
     ? findEle
-    : { id: pk, color: ColorTShortEnum.BLACK, size: SizeTShortEnum.S };
+    : { id: pk, color: ColorTShirtEnum.BLACK, size: SizeTShirtEnum.S };
 };

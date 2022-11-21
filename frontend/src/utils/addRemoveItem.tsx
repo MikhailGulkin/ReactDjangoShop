@@ -1,17 +1,17 @@
 import { addItem } from "@/redux/cart/slice";
 import { AppDispatch } from "@/redux/store";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import { ProductTShirt } from "@/@types/pages/Product";
 import {
-  ColorTShortEnum,
-  SizeTShortEnum,
+  ColorTShirtEnum,
+  SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
 export const onClickAdd = (
-  item: ProductTShort | undefined,
+  item: ProductTShirt | undefined,
   dispatch: AppDispatch,
-  color: ColorTShortEnum | undefined,
-  size: SizeTShortEnum | undefined
+  color: ColorTShirtEnum | undefined,
+  size: SizeTShirtEnum | undefined
 ) => {
   function wrapper() {
     if (item)
@@ -19,8 +19,8 @@ export const onClickAdd = (
         addItem({
           ...item,
           count: 0,
-          color: color ? color : ColorTShortEnum.BLACK,
-          size: size ? size : SizeTShortEnum.S,
+          color: color ? color : ColorTShirtEnum.BLACK,
+          size: size ? size : SizeTShirtEnum.S,
         })
       );
   }
