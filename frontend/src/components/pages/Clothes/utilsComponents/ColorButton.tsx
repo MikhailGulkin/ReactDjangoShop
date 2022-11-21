@@ -11,10 +11,7 @@ import { ColorTShortEnum } from "@/redux/productProperties/type";
 import { hasSizeColor } from "@/utils/hasColor";
 import { defineProductIdFunc } from "@/utils/defineProductId";
 
-type ColorButtonType = {
-  stringClass: string;
-  colorBtn: ColorTShortEnum;
-};
+import { ColorButtonType } from "@/@types/pages/Clothes";
 
 export const ColorButton: React.FC<ColorButtonType> = ({
   stringClass,

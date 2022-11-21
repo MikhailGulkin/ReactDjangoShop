@@ -1,14 +1,11 @@
 import React from "react";
 
-import { ProductTShort } from "@/@types/pages/Product";
 
 import { MainItems } from "@/components/pages/Home/MainItems";
 import { ItemsSkeleton } from "@/components/pages/Home/MainItems/Skeleton";
 
-type MainPartType = {
-  styleList: string[];
-  clothes: ProductTShort[];
-};
+import {MainPartType} from "@/@types/common/Home";
+
 export const MainPart: React.FC<MainPartType> = ({ styleList, clothes }) => {
   const SkeletonArr = [
     styleList.map((obj, index) => (

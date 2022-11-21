@@ -8,15 +8,11 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
 import { returnValidColor } from "@/utils/hasColor";
 
-import { ProductTShort } from "@/@types/pages/Product";
-
+import {PropsType} from "@/@types/common/Home";
 import style from "./MainItems.module.scss";
 
-type Props = {
-  stringClass: String;
-  props: ProductTShort;
-};
-export const MainItems: React.FC<Props> = ({ stringClass, props }) => {
+
+export const MainItems: React.FC<PropsType> = ({ stringClass, props }) => {
   const { albumImages, pk } = props;
   const { propertiesList } = useSelector(productPropertiesSelector);
 

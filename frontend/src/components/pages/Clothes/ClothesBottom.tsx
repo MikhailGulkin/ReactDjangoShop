@@ -11,12 +11,8 @@ import { useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 import { productPropFind } from "@/redux/productProperties/selectors";
 
-import { ProductTShort } from "@/@types/pages/Product";
+import {ClothesBottomType} from "@/@types/pages/Clothes";
 
-type ClothesBottomType = {
-  prop: ProductTShort;
-  id: number;
-};
 export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
   const dispatch = useAppDispatch();
 
