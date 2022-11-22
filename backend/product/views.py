@@ -13,7 +13,7 @@ class ProductsListTShirtAPIView(generics.ListAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('title',)
-    ordering_fields = ('totalPrice',)
+    ordering_fields = ('totalPrice', 'title')
 
 
 class ProductTShirtAPIView(generics.RetrieveAPIView):
