@@ -31,3 +31,4 @@ class ProductTShirtAPIView(generics.RetrieveAPIView):
 class ProductHoodieAPIView(generics.RetrieveAPIView):
     queryset = ProductClothesHoodie.objects.all()
     serializer_class = ProductHoodieSerializer
+

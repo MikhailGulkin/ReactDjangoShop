@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import ProductClothesTShirt, AlbumImageTShirts, ImageTShirts, \
     ProductClothesHoodie, AlbumImageHoodie, ImageHoodie
 
-
 def admin_register(name): return admin.site.register(name)
 
 

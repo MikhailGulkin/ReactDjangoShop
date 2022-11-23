@@ -8,7 +8,7 @@ import {
 } from "@/redux/filters/types";
 
 const initialState: FilterSliceState = {
-  currentCategory: CategoriesEnum.ALL,
+  currentCategory: CategoriesEnum.TSHIRT,
   currentSort: {
     name: SortNameEnum.PRICE_ASC,
     sortProperty: SortPropertyEnum.PRICE_ASC,

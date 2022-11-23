@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-
 import { ProductTShirt } from "@/@types/pages/Product";
 
 import { defineProductIdFunc } from "@/utils/defineProductId";
@@ -18,7 +17,7 @@ export const ClothesTShirt: React.FC = () => {
 
   const getItem = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/products/t_short/${productId}/`
+      `http://localhost:8000/products/t_shirt/${productId}/`
     );
     setItem({ ...data, type: ProductClothesEnum.TSHIRT });
   };

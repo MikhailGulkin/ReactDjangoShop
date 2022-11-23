@@ -1,11 +1,17 @@
 from rest_framework import serializers
-from .models import CustomUser
+from django.contrib.auth import get_user_model
+from djoser.serializers import UserCreateSerializer
 
 
-class UserProfileSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True)
+class UserCreateSerializers(UserCreateSerializer):
+    class Meta(UserCreateSerializer.Meta):
+        model = get_user_model()
+        fields = ('id', 'email', 'first_name', 'last_name',)
 
-    class Meta:
-        model = CustomUser
-        fields = '__all__'
 
+# class UserProfileSerializer(serializers.ModelSerializer):
+#     user = serializers.StringRelatedField(read_only=True)
+#
+#     class Meta:
+#         model = get_user_model()
+#         fields = '__all__'

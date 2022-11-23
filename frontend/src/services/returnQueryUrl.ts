@@ -6,13 +6,12 @@ export type returnQueryUrlType = {
   sortChosen: boolean;
 };
 export const returnQueryCategory = (currentCategory: CategoriesEnum) => {
-    const BlockCat = {
-        'All': '/products/all-hoodies/',
-        'Hoodie': '/products/all-hoodies/',
-        'T-Shirt': '/products/all-t_shirts/'
-    }
-    return BlockCat[currentCategory]
-}
+  const BlockCat = {
+    Hoodie: "/products/all-hoodies/",
+    "T-Shirt": "/products/all-t_shirts/",
+  };
+  return BlockCat[currentCategory];
+};
 
 export const returnQueryUrl = (
   currentSort: SortType,

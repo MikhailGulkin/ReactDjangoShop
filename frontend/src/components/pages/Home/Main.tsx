@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import { Link } from "react-router-dom";
+import { paths } from "@/routing/config";
 import { MainPart } from "@/components/common/MainPart";
 
 import { ProductTShirt } from "@/@types/pages/Product";
@@ -9,7 +11,7 @@ export const Main: React.FC = () => {
   const [clothes, setClothes] = useState<ProductTShirt[]>([]);
   const getClothes = async () => {
     const { data } = await axios.get(
-      "http://localhost:8000/products/all-t_shorts/"
+      "http://localhost:8000/products/all-t_shirts/"
     );
     setClothes(data.results);
   };
@@ -35,12 +37,12 @@ export const Main: React.FC = () => {
             hexagon try-hard chambray.
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              Button
-            </button>
-            <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-              Button
-            </button>
+            <Link
+              to={paths.shop}
+              className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
+              Shop
+            </Link>
           </div>
         </div>
         <div className="flex space-x-6 items-center  flex-grow justify-center w-1/2">

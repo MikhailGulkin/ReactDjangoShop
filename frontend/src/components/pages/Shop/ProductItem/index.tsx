@@ -8,11 +8,12 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
 import { returnValidColor } from "@/utils/hasColor";
 
-import { ProductTShirt } from "@/@types/pages/Product";
-import {ProductClothesEnum} from "@/redux/productProperties/type";
+import { ProductHoodie, ProductTShirt } from "@/@types/pages/Product";
+import { ProductClothesEnum } from "@/redux/productProperties/type";
 
-export const ProductItem: React.FC<ProductTShirt> = ({
+export const ProductItem: React.FC<ProductTShirt | ProductHoodie> = ({
   pk,
+  type,
   price,
   albumImages,
   title,
@@ -20,12 +21,21 @@ export const ProductItem: React.FC<ProductTShirt> = ({
   const { propertiesList } = useSelector(productPropertiesSelector);
   return (
     <Link
-      to={paths.itemsTShirtPage(pk)}
+      to={
+        type === ProductClothesEnum.HOODIE
+          ? paths.itemsHoodiePage(pk)
+          : paths.itemsTShirtPage(pk)
+      }
       className="h-120 w-72 rounded shadow-lg mx-auto border hover:scale-105"
     >
       <div className="h-72 relative">
         <img
-          src={returnValidColor(propertiesList, pk,ProductClothesEnum.TSHIRT , albumImages)}
+          src={returnValidColor(
+            propertiesList,
+            pk,
+            ProductClothesEnum.TSHIRT,
+            albumImages
+          )}
           alt={title}
         />
       </div>

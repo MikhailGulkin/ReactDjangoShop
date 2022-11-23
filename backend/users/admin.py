@@ -1,8 +1,11 @@
-from django.contrib import admin
-from .models import CustomUser
 from rest_framework_simplejwt.token_blacklist.admin import \
     OutstandingTokenAdmin
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken
+
+from django.contrib import admin
+
+from .models import CustomUser
+
 
 
 # Overloading perms for delete toke-user

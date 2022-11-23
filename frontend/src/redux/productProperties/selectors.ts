@@ -13,7 +13,6 @@ export const productPropFind =
     const findEle = state.productProperties.propertiesList.find(
       (obj) => obj.id === pk && obj.type === type
     );
-    console.log(findEle)
     return findEle
       ? findEle
       : {

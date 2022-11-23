@@ -27,7 +27,7 @@ export const Shop: React.FC = () => {
   };
   React.useEffect(() => {
     getProducts();
-  }, [currentSort]);
+  }, [currentSort, currentCategory]);
   const products = items.map((obj: any) => (
     <ProductItem key={obj.pk} {...obj} />
   ));

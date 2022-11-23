@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ProductClothesTShirt
+from .models import ProductClothesTShirt, ProductClothesHoodie
 
 
 class BaseProductSerializer(serializers.ModelSerializer):
@@ -34,12 +34,22 @@ class BaseProductSerializer(serializers.ModelSerializer):
 
 
 class ProductTShirtSerializer(BaseProductSerializer):
+    type = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
         model = ProductClothesTShirt
-        fields = BaseProductSerializer.Meta.fields
+        fields = (*BaseProductSerializer.Meta.fields, 'type')
+
+    def get_type(self, obj):
+        return 'TShirt'
 
 
 class ProductHoodieSerializer(BaseProductSerializer):
+    type = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
-        model = ProductClothesTShirt
-        fields = BaseProductSerializer.Meta.fields
+        model = ProductClothesHoodie
+        fields = (*BaseProductSerializer.Meta.fields, 'type')
+
+    def get_type(self, obj):
+        return 'Hoodie'
