@@ -10,6 +10,8 @@ import { defineProductIdFunc } from "@/utils/defineProductId";
 
 import { ClothesHeader } from "@/components/pages/Clothes/ClothesHeader";
 import { ClothesBottom } from "@/components/pages/Clothes/ClothesBottom";
+import { ProductClothesEnum } from "@/redux/productProperties/type";
+import { ClothesBlock } from "@/components/common/ClothesBlock";
 
 export const ClothesHoodie: React.FC = () => {
   const { productId } = useParams();
@@ -21,23 +23,11 @@ export const ClothesHoodie: React.FC = () => {
     const { data } = await axios.get(
       `http://localhost:8000/products/hoodie/${productId}/`
     );
-    setItem(data);
+    setItem({ ...data, type: ProductClothesEnum.HOODIE });
   };
   React.useEffect(() => {
     getItem();
   }, []);
 
-  return (
-    <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <ImageBlock albumImages={item?.albumImages} pk={defineProductId} />
-          <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            {item && <ClothesHeader {...item} />}
-            {item && <ClothesBottom prop={item} id={defineProductId} />}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <ClothesBlock item={item} id={defineProductId} />;
 };

@@ -18,12 +18,13 @@ import { PkColorSizeType } from "@/@types/pages/CartItem";
 export const AddRemoveItem: React.FC<PkColorSizeType> = ({
   pk,
   size,
+  type,
   color,
 }) => {
-  const item = useSelector(cartItemSelector(pk, color, size));
+  const item = useSelector(cartItemSelector(pk, color, type, size));
   const dispatch = useAppDispatch();
   const onClickRemove = () => {
-    dispatch(removeItem({ pk: pk, color: color, size: size }));
+    dispatch(removeItem({ pk: pk, color: color, type: type, size: size }));
   };
   return (
     <div className={`px-6 py-4 flex justify-between items-center`}>
@@ -36,7 +37,7 @@ export const AddRemoveItem: React.FC<PkColorSizeType> = ({
       </button>
       <b className={`px-2 ${style.fontSize}`}>{item?.count}</b>
       <button
-        onClick={onClickAdd(item, dispatch, color, size)}
+        onClick={onClickAdd(item, dispatch, type, color, size)}
         className={`${utilsStyle.buttonCircle} ${style.buttonPlusMinus}`}
       >
         <Plus />

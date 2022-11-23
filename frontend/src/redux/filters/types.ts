@@ -14,7 +14,7 @@ export enum SortNameEnum {
 export enum CategoriesEnum {
     ALL = 'All',
     TSHIRT = 'T-Shirt',
-    SHORTS = 'Shorts'
+    HOODIE = 'Hoodie'
 }
 
 export type SortType = {

@@ -12,11 +12,14 @@ import { useSelector } from "react-redux";
 import { productPropFind } from "@/redux/productProperties/selectors";
 
 import { ClothesBottomType } from "@/@types/pages/Clothes";
+import { getUrlName } from "@/utils/getUrlName";
+import { useLocation } from "react-router";
 
 export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
   const dispatch = useAppDispatch();
+  const getClothesType = getUrlName(useLocation());
 
-  const propItem = useSelector(productPropFind(id));
+  const propItem = useSelector(productPropFind(id, getClothesType));
   return (
     <>
       <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
@@ -28,7 +31,13 @@ export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
           ${prop.totalPrice}
         </span>
         <button
-          onClick={onClickAdd(prop, dispatch, propItem.color, propItem.size)}
+          onClick={onClickAdd(
+            prop,
+            dispatch,
+            getClothesType,
+            propItem.color,
+            propItem.size
+          )}
           className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
         >
           Add to cart

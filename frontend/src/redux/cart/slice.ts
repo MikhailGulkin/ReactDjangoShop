@@ -18,6 +18,7 @@ const cartSlice = createSlice({
       const findProp = propertiesList.find(
         (obj) =>
           obj.id === action.payload.pk &&
+          obj.type === action.payload.type &&
           obj.color === action.payload.color &&
           obj.size === action.payload.size
       );
@@ -26,12 +27,14 @@ const cartSlice = createSlice({
         const findItem = state.items.find(
           (obj) =>
             obj.pk === action.payload.pk &&
+            obj.type === action.payload.type &&
             obj.color === findProp.color &&
             obj.size === findProp.size
         );
         if (!findItem) {
           action.payload.count++;
           action.payload.color = findProp.color;
+          action.payload.type = findProp.type;
           action.payload.size = findProp.size;
 
           state.items.push(action.payload);
@@ -44,6 +47,7 @@ const cartSlice = createSlice({
           (obj) =>
             obj.pk === action.payload.pk &&
             obj.color === action.payload.color &&
+            obj.type === action.payload.type &&
             obj.size === action.payload.size
         );
         if (!findItem) {
@@ -73,6 +77,7 @@ const cartSlice = createSlice({
       const index = state.items.findIndex(
         (obj) =>
           obj.color === action.payload.color &&
+          obj.type === action.payload.type &&
           obj.size === action.payload.size &&
           obj.pk === action.payload.pk
       );

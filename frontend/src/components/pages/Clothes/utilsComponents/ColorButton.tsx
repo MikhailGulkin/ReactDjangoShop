@@ -48,7 +48,6 @@ export const ColorButton: React.FC<ColorButtonType> = ({
         : "border-gray-300";
 
   const setColor = () => {
-    console.log(colorBtn);
     dispatch(
       setActiveColor({
         color: colorBtn,

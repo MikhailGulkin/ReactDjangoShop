@@ -9,6 +9,7 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 import { returnValidColor } from "@/utils/hasColor";
 
 import { ProductTShirt } from "@/@types/pages/Product";
+import {ProductClothesEnum} from "@/redux/productProperties/type";
 
 export const ProductItem: React.FC<ProductTShirt> = ({
   pk,
@@ -24,7 +25,7 @@ export const ProductItem: React.FC<ProductTShirt> = ({
     >
       <div className="h-72 relative">
         <img
-          src={returnValidColor(propertiesList, pk, albumImages)}
+          src={returnValidColor(propertiesList, pk,ProductClothesEnum.TSHIRT , albumImages)}
           alt={title}
         />
       </div>

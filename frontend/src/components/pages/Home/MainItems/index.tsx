@@ -8,6 +8,8 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
 import { returnValidColor } from "@/utils/hasColor";
 
+import { ProductClothesEnum } from "@/redux/productProperties/type";
+
 import { PropsType } from "@/@types/common/Home";
 import style from "./MainItems.module.scss";
 
@@ -23,7 +25,12 @@ export const MainItems: React.FC<PropsType> = ({ stringClass, props }) => {
         <img
           className="object-cover object-center rounded"
           alt="hero"
-          src={returnValidColor(propertiesList, pk, albumImages)}
+          src={returnValidColor(
+            propertiesList,
+            pk,
+            ProductClothesEnum.TSHIRT,
+            albumImages
+          )}
         />
       </div>
     </Link>

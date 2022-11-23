@@ -14,10 +14,12 @@ import { filterSelector } from "@/redux/filters/selectors";
 export const Shop: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(productItemsSelector);
-  const { currentSort, sortChosen } = useSelector(filterSelector);
+  const { currentSort, sortChosen, currentCategory } =
+    useSelector(filterSelector);
   const getProducts = async () => {
     dispatch(
       fetchProducts({
+        currentCategory: currentCategory,
         currentSort: currentSort,
         sortChosen: sortChosen,
       })
