@@ -1,7 +1,16 @@
 from django.contrib import admin
-from .models import ProductClothesTShirt, ImageTShirts, AlbumImageTShirts
+from .models import ProductClothesTShirt, AlbumImageTShirts, ImageTShirts, \
+    ProductClothesHoodie, AlbumImageHoodie, ImageHoodie
 
 
-admin.site.register(ProductClothesTShirt)
-admin.site.register(AlbumImageTShirts)
-admin.site.register(ImageTShirts)
+def admin_register(name): return admin.site.register(name)
+
+
+admin_register(ProductClothesTShirt)
+admin_register(AlbumImageTShirts)
+admin_register(ImageTShirts)
+
+admin_register(ProductClothesHoodie)
+admin_register(AlbumImageHoodie)
+admin_register(ImageHoodie)
+

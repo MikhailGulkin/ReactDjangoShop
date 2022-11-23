@@ -1,17 +1,24 @@
-import { albumImageType } from "@/@types/pages/Product";
+import {
+  albumImageHoodieType,
+  albumImageTShirtType,
+  ProductHoodie,
+} from "@/@types/pages/Product";
 import { ProductTShirt } from "@/@types/pages/Product";
-import { ColorTShirtEnum } from "@/redux/productProperties/type";
+import {
+  ColorHoodieEnum,
+  ColorTShirtEnum,
+} from "@/redux/productProperties/type";
 
 export type ImageBlockType = {
-  albumImages: albumImageType | undefined;
+  albumImages: albumImageTShirtType | albumImageHoodieType | undefined;
   pk: number;
 };
 
 export type ClothesBottomType = {
-  prop: ProductTShirt;
+  prop: ProductTShirt | ProductHoodie;
   id: number;
 };
 export type ColorButtonType = {
   stringClass: string;
-  colorBtn: ColorTShirtEnum;
+  colorBtn: ColorTShirtEnum | ColorHoodieEnum;
 };

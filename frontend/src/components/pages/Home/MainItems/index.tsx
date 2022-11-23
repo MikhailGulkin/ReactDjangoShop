@@ -8,16 +8,15 @@ import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
 import { returnValidColor } from "@/utils/hasColor";
 
-import {PropsType} from "@/@types/common/Home";
+import { PropsType } from "@/@types/common/Home";
 import style from "./MainItems.module.scss";
-
 
 export const MainItems: React.FC<PropsType> = ({ stringClass, props }) => {
   const { albumImages, pk } = props;
   const { propertiesList } = useSelector(productPropertiesSelector);
 
   return (
-    <Link to={paths.itemsPage(pk)}>
+    <Link to={paths.itemsTShirtPage(pk)}>
       <div
         className={`w-44 h-64 ${stringClass} ${style.root} rounded-lg overflow-hidden hover:scale-105`}
       >

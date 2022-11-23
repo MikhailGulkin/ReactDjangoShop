@@ -1,4 +1,4 @@
-import { ProductTShirt } from "@/@types/pages/Product";
+import { ProductHoodie, ProductTShirt } from "@/@types/pages/Product";
 
 export enum ProductStatus {
   LOADING = "loading",
@@ -6,6 +6,6 @@ export enum ProductStatus {
   ERROR = "error",
 }
 export interface ProductSliceState {
-  items: ProductTShirt[];
+  items: ProductTShirt[] | ProductHoodie[];
   status: ProductStatus;
 }

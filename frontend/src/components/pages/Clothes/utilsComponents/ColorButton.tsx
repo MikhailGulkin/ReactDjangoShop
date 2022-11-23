@@ -6,12 +6,17 @@ import { useAppDispatch } from "@/redux/store";
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 import { setActiveColor } from "@/redux/productProperties/slice";
 
-import { ColorTShirtEnum } from "@/redux/productProperties/type";
+import {
+  ColorTShirtEnum,
+  ProductClothesEnum,
+} from "@/redux/productProperties/type";
 
 import { hasSizeColor } from "@/utils/hasColor";
 import { defineProductIdFunc } from "@/utils/defineProductId";
 
 import { ColorButtonType } from "@/@types/pages/Clothes";
+import { getUrlName } from "@/utils/getUrlName";
+import { useLocation } from "react-router";
 
 export const ColorButton: React.FC<ColorButtonType> = ({
   stringClass,
@@ -22,8 +27,14 @@ export const ColorButton: React.FC<ColorButtonType> = ({
 
   const defineProductId = defineProductIdFunc(productId);
 
+  const getClothesType = getUrlName(useLocation());
+
   const { propertiesList } = useSelector(productPropertiesSelector);
-  const propertiesEle = hasSizeColor(propertiesList, defineProductId);
+  const propertiesEle = hasSizeColor(
+    propertiesList,
+    getClothesType,
+    defineProductId
+  );
   let activeCls;
   if (propertiesEle)
     activeCls =
@@ -37,9 +48,11 @@ export const ColorButton: React.FC<ColorButtonType> = ({
         : "border-gray-300";
 
   const setColor = () => {
+    console.log(colorBtn);
     dispatch(
       setActiveColor({
         color: colorBtn,
+        type: getClothesType,
         productId: defineProductId,
       })
     );

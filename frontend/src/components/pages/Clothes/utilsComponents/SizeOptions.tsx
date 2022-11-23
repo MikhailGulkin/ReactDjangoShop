@@ -11,20 +11,26 @@ import { defineProductIdFunc } from "@/utils/defineProductId";
 import { hasSizeColor } from "@/utils/hasColor";
 
 import { Arrow } from "@/components/ui/svg/Arrow";
+import { useLocation } from "react-router";
+import { getUrlName } from "@/utils/getUrlName";
 
 export const SizeOptions: React.FC = () => {
   const { productId } = useParams();
   const dispatch = useAppDispatch();
 
+  const location = useLocation();
+  const pageName = getUrlName(location);
+
   const defineProductId = defineProductIdFunc(productId);
 
   const { propertiesList } = useSelector(productPropertiesSelector);
-  const propertiesEle = hasSizeColor(propertiesList, defineProductId);
+  const propertiesEle = hasSizeColor(propertiesList, pageName, defineProductId);
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     if (SizeTShirtEnum)
       dispatch(
         setActiveSize({
           size: event.target.value as SizeTShirtEnum,
+          type: pageName,
           productId: defineProductId,
         })
       );

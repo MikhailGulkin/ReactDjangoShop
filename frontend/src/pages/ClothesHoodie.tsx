@@ -4,22 +4,22 @@ import { useParams } from "react-router-dom";
 
 import { ImageBlock } from "@/components/pages/Clothes/ImageBlock";
 
-import { ProductTShirt } from "@/@types/pages/Product";
+import { ProductHoodie } from "@/@types/pages/Product";
 
 import { defineProductIdFunc } from "@/utils/defineProductId";
 
 import { ClothesHeader } from "@/components/pages/Clothes/ClothesHeader";
 import { ClothesBottom } from "@/components/pages/Clothes/ClothesBottom";
 
-export const Clothes: React.FC = () => {
+export const ClothesHoodie: React.FC = () => {
   const { productId } = useParams();
   const defineProductId = defineProductIdFunc(productId);
 
-  const [item, setItem] = useState<ProductTShirt>();
+  const [item, setItem] = useState<ProductHoodie>();
 
   const getItem = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/products/t_short/${productId}/`
+      `http://localhost:8000/products/hoodie/${productId}/`
     );
     setItem(data);
   };

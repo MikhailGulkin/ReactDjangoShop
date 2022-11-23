@@ -1,19 +1,26 @@
-import { ProductTShirt } from "@/@types/pages/Product";
 import {
+  albumImageHoodieType,
+  albumImageTShirtType,
+  ProductClothesBase,
+} from "@/@types/pages/Product";
+import {
+  ColorHoodieEnum,
   ColorTShirtEnum,
   SizeTShirtEnum,
 } from "@/redux/productProperties/type";
 
-export interface CartItemType extends ProductTShirt {
+export interface CartItemType extends ProductClothesBase {
   count: number;
   size: SizeTShirtEnum;
-  color: ColorTShirtEnum;
+  albumImages: albumImageTShirtType | albumImageHoodieType;
+  color: ColorTShirtEnum | ColorHoodieEnum;
 }
 
 export interface CartSliceState {
   totalPrice: number;
   items: CartItemType[];
 }
+
 export type pkType = {
   pk: number;
 };

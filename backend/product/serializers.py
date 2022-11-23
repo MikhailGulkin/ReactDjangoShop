@@ -2,12 +2,11 @@ from rest_framework import serializers
 from .models import ProductClothesTShirt
 
 
-class ProductTShirtSerializer(serializers.ModelSerializer):
+class BaseProductSerializer(serializers.ModelSerializer):
     totalPrice = serializers.SerializerMethodField(read_only=True)
     albumImages = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
-        model = ProductClothesTShirt
         fields = (
             'pk',
             'title',
@@ -32,3 +31,15 @@ class ProductTShirtSerializer(serializers.ModelSerializer):
                     for image in album_obj.album_images.get_queryset()
                 ] for album_obj in all_album_objs
             }
+
+
+class ProductTShirtSerializer(BaseProductSerializer):
+    class Meta:
+        model = ProductClothesTShirt
+        fields = BaseProductSerializer.Meta.fields
+
+
+class ProductHoodieSerializer(BaseProductSerializer):
+    class Meta:
+        model = ProductClothesTShirt
+        fields = BaseProductSerializer.Meta.fields

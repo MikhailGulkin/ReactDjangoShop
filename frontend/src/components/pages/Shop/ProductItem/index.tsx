@@ -19,7 +19,7 @@ export const ProductItem: React.FC<ProductTShirt> = ({
   const { propertiesList } = useSelector(productPropertiesSelector);
   return (
     <Link
-      to={paths.itemsPage(pk)}
+      to={paths.itemsTShirtPage(pk)}
       className="h-120 w-72 rounded shadow-lg mx-auto border hover:scale-105"
     >
       <div className="h-72 relative">

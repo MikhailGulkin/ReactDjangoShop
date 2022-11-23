@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from re import findall
+
+from .mixins.services import GetModelName
 
 size_clothes = [
     ('S', 'S'),
@@ -14,28 +15,41 @@ size_clothes = [
 
 class ImageTShirts(models.Model):
     clothes_image = models.ImageField(
-        upload_to='T-Short',
+        upload_to='T-Shirt',
     )
 
     def __str__(self):
         return self.clothes_image.name
 
 
-class AlbumImageTShirts(models.Model):
+class ImageHoodie(models.Model):
+    clothes_image = models.ImageField(
+        upload_to='Hoodie',
+    )
+
+    def __str__(self):
+        return self.clothes_image.name
+
+
+class AlbumImageTShirts(models.Model, GetModelName):
     album_images = models.ManyToManyField(ImageTShirts)
     color = models.CharField(max_length=100)
 
     def __str__(self):
-        name_t_short = self.album_images.get_queryset().first().clothes_image.name
-        name_t_short = findall(r'T-Short/(.*)\.jpg', name_t_short)
-        return f'{self.color} - {name_t_short[0]}'
+        return f'{self.color} - {self.name_clothes("T-Shirt")}'
 
 
-class ProductClothesTShirt(models.Model):
+class AlbumImageHoodie(models.Model, GetModelName):
+    album_images = models.ManyToManyField(ImageHoodie)
+    color = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.color} - {self.name_clothes("Hoodie")}'
+
+
+class ProductClothesBase(models.Model):
     title = models.CharField(max_length=200, default='')
-    clothes_images = models.ManyToManyField(
-        AlbumImageTShirts,
-    )
+
     price = models.FloatField(default=1)
     size = models.CharField(
         max_length=100,
@@ -47,8 +61,22 @@ class ProductClothesTShirt(models.Model):
     description = models.CharField(max_length=1000, default='')
     features = ArrayField(models.CharField(
         max_length=250),
-        default=list
-    )
+        default=list)
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return f'{self.title} - {self.pk}'
+
+
+class ProductClothesTShirt(ProductClothesBase):
+    clothes_images = models.ManyToManyField(
+        AlbumImageTShirts,
+    )
+
+
+class ProductClothesHoodie(ProductClothesBase):
+    clothes_images = models.ManyToManyField(
+        AlbumImageHoodie,
+    )

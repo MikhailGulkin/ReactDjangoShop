@@ -1,21 +1,33 @@
 from rest_framework import generics
-from .models import ProductClothesTShirt
-from .serializers import ProductTShirtSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.filters import OrderingFilter, SearchFilter
+from .models import ProductClothesTShirt, ProductClothesHoodie
+from .serializers import ProductTShirtSerializer, ProductHoodieSerializer
 from django.db.models import F
+from .mixins.services import BaseProductSettingsMixin
 
 
-class ProductsListTShirtAPIView(generics.ListAPIView):
+class ProductsListTShirtAPIView(
+    BaseProductSettingsMixin,
+    generics.ListAPIView
+):
     queryset = ProductClothesTShirt.objects.annotate(
         totalPrice=F('price') * (1 - F('discount') / 100))
     serializer_class = ProductTShirtSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ('title',)
-    ordering_fields = ('totalPrice', 'title')
+
+
+class ProductsListHoodieAPIView(
+    BaseProductSettingsMixin,
+    generics.ListAPIView
+):
+    queryset = ProductClothesHoodie.objects.annotate(
+        totalPrice=F('price') * (1 - F('discount') / 100))
+    serializer_class = ProductHoodieSerializer
 
 
 class ProductTShirtAPIView(generics.RetrieveAPIView):
     queryset = ProductClothesTShirt.objects.all()
     serializer_class = ProductTShirtSerializer
+
+
+class ProductHoodieAPIView(generics.RetrieveAPIView):
+    queryset = ProductClothesHoodie.objects.all()
+    serializer_class = ProductHoodieSerializer

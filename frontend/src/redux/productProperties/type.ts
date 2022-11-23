@@ -1,7 +1,15 @@
+import exp from "constants";
+
 export enum ColorTShirtEnum {
   BLACK = "black",
   BLUE = "blue",
   GREEN = "green",
+}
+
+export enum ColorHoodieEnum {
+  BLACK = "black",
+  BLUE = "blue",
+  white = "white",
 }
 
 export enum SizeTShirtEnum {
@@ -12,20 +20,32 @@ export enum SizeTShirtEnum {
   XL_2 = "2XL",
   XL_3 = "3XL",
 }
-export interface PropertiesColorType {
-  color: ColorTShirtEnum;
+
+export enum ProductClothesEnum {
+  HOODIE = "Hoodie",
+  TSHIRT = "T-Shirt",
+}
+
+interface PropertiesColorSizeTypeBase {
+  type: ProductClothesEnum;
   productId: number;
 }
 
-export interface PropertiesSizeType {
-  size: SizeTShirtEnum;
-  productId: number;
+export interface PropertiesColorType extends PropertiesColorSizeTypeBase {
+  color: ColorTShirtEnum | ColorHoodieEnum;
 }
-export interface PropertiesType {
-  color: ColorTShirtEnum;
+
+export interface PropertiesSizeType extends PropertiesColorSizeTypeBase {
   size: SizeTShirtEnum;
+}
+
+export interface PropertiesType {
+  color: ColorTShirtEnum | ColorHoodieEnum;
+  size: SizeTShirtEnum;
+  type: ProductClothesEnum;
   id: number;
 }
+
 export interface PropertiesSliceState {
   propertiesList: PropertiesType[];
 }

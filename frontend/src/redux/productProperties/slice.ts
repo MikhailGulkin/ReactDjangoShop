@@ -25,12 +25,14 @@ const productPropertiesSlice = createSlice({
     setActiveColor(state, action: PayloadAction<PropertiesColorType>) {
       const propElement = hasSizeColor(
         state.propertiesList,
+        action.payload.type,
         action.payload.productId
       );
       if (propElement) propElement.color = action.payload.color;
       else {
         state.propertiesList.push({
           id: action.payload.productId,
+          type: action.payload.type,
           color: action.payload.color,
           size: SizeTShirtEnum.S,
         });
@@ -40,12 +42,14 @@ const productPropertiesSlice = createSlice({
     setActiveSize(state, action: PayloadAction<PropertiesSizeType>) {
       const propElement = hasSizeColor(
         state.propertiesList,
+        action.payload.type,
         action.payload.productId
       );
       if (propElement) propElement.size = action.payload.size;
       else {
         state.propertiesList.push({
           id: action.payload.productId,
+          type: action.payload.type,
           color: ColorTShirtEnum.BLACK,
           size: action.payload.size,
         });

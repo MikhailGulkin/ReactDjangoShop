@@ -5,12 +5,16 @@ import { paths } from "@/routing/config";
 
 import { useSelector } from "react-redux";
 import { cartItemSelector } from "@/redux/cart/selectors";
+import { CartItemType } from "@/redux/cart/type";
+import { useLocation } from "react-router";
 
 import { AddRemoveItem } from "@/components/pages/Cart/utilsComponents/AddRemoveItem";
 import { Favorite } from "@/components/pages/Cart/utilsComponents/Favorite";
 import { DeleteItem } from "@/components/pages/Cart/utilsComponents/DeleteItem";
 
-import { CartItemType } from "@/redux/cart/type";
+import { getUrlName } from "@/utils/getUrlName";
+
+import { ColorBtnCls } from "@/consts/Clothes";
 
 export const CartItem: React.FC<CartItemType> = ({
   pk,
@@ -21,25 +25,22 @@ export const CartItem: React.FC<CartItemType> = ({
   size,
 }) => {
   const item = useSelector(cartItemSelector(pk, color, size));
-  const btnColorStyles = {
-    black: "bg-black",
-    blue: "bg-blue-600",
-    green: "bg-green-500",
-  };
 
   return (
     <div
       className={`flex items-center justify-between uppercase text-xs sm:text-sm mt-10`}
     >
       <div className="py-4 w-1/4">
-        <Link to={paths.itemsPage(pk)}>
+        <Link to={paths.itemsTShirtPage(pk)}>
           <h1 className="text-xl truncate">{title}</h1>
         </Link>
         <div className="flex items-center">
           <button
             disabled={true}
             className={`border-2  mr-1 ${
-              btnColorStyles[item?.color ? item?.color : "black"]
+              ColorBtnCls[item.?type as keyof typeof ColorBtnCls][
+                item?.color ? item?.color : "black"
+              ]
             } rounded-full w-6 h-6 focus:outline-none`}
           ></button>
           <h1 className="text-xl font-bold">{item?.size}</h1>
