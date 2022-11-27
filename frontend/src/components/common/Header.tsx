@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -6,14 +6,38 @@ import { paths } from "@/routing/config";
 
 import { cartSelector } from "@/redux/cart/selectors";
 
+import { authUserSelector } from "@/redux/auth/selectors";
+import { useAppDispatch } from "@/redux/store";
+import { logout } from "@/redux/auth/slice";
+
 import { Logo } from "@/components/ui/svg/Logo";
 import { Cart } from "@/components/ui/svg/Cart";
+
 import { CalcTotalProduct } from "@/utils/calcTotal";
 
 export const Header: React.FC = () => {
+  const dispatch = useAppDispatch();
+
   const { items } = useSelector(cartSelector);
+  const { isAuthenticated } = useSelector(authUserSelector);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const expression = scrollPosition > 0 ? `border-b border-b-blue-100` : "";
   return (
-    <header className="text-gray-600 body-font">
+    <header
+      className={`text-gray-600 body-font ${expression} w-full fixed top-0 z-10 bg-gray-50`}
+    >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link
           to={paths.main}
@@ -26,18 +50,29 @@ export const Header: React.FC = () => {
           className="md:ml-auto md:ml-4 md:py-1 md:pl-4
           flex flex-wrap items-center text-base justify-center mr-auto"
         >
-          <Link to={paths.shop} className="mr-5 hover:text-gray-900">
-            Shop
-          </Link>
-          <Link to={paths.login} className="mr-5 hover:text-gray-900">
-            Login
-          </Link>
-          <Link to={paths.signup} className="mr-5 hover:text-gray-900">
-            Signup
-          </Link>
           <Link to={paths.main} className="mr-5 hover:text-gray-900">
             Home
           </Link>
+          <Link to={paths.shop} className="mr-5 hover:text-gray-900">
+            Shop
+          </Link>
+          {isAuthenticated ? (
+            <button
+              onClick={() => dispatch(logout())}
+              className="mr-5 hover:text-gray-900"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to={paths.login} className="mr-5 hover:text-gray-900">
+                Login
+              </Link>
+              <Link to={paths.signup} className="mr-5 hover:text-gray-900">
+                Signup
+              </Link>
+            </>
+          )}
         </nav>
         <Link className="relative" to="/cart">
           <Cart />

@@ -22,3 +22,8 @@ export type ColorButtonType = {
   stringClass: string;
   colorBtn: ColorTShirtEnum | ColorHoodieEnum;
 };
+
+export type ClothesBlockType = {
+  item: ProductTShirt | ProductHoodie | undefined;
+  id: number;
+};

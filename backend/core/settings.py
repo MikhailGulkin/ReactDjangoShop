@@ -1,7 +1,8 @@
-from pathlib import Path
-from dotenv import load_dotenv
-from datetime import timedelta
 import os
+from datetime import timedelta
+from pathlib import Path
+
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,7 +16,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -35,12 +36,14 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'corsheaders',
     'rest_framework',
-    'drf_spectacular',
     'djoser',
+    'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+
+    'drf_spectacular',
+    'django_better_admin_arrayfield',
 
 ]
 
@@ -129,6 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTH_USER_MODEL = 'users.CustomUser'
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -166,27 +170,27 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PWD')
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES':
-        [
+        (
             'rest_framework_simplejwt.authentication.JWTAuthentication',
 
-        ],
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    #     # 'rest_framework.permissions.AllowAny',
-    # ],
+        ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
     'SEARCH_PARAM': 'q',
     'DEFAULT_PAGINATION_CLASS':
         "rest_framework.pagination.LimitOffsetPagination",
     'PAGE_SIZE': 10,
 }
-
 # JWT
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }
+DOMAIN = os.getenv('FRONT_DOMAIN')
+SITE_NAME = 'React Shop'
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
@@ -199,6 +203,12 @@ DJOSER = {
     'USERNAME_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
+    'SERIALIZERS': {
+        'user_create': 'users.serializers.UserCreateSerializers',
+        'user': 'users.serializers.UserCreateSerializers',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+
+    }
 
 }
 SPECTACULAR_SETTINGS = {

@@ -9,7 +9,9 @@ import { StaffType } from "@/@types/pages/Staff";
 export const MainTeam: React.FC = () => {
   const [staff, setStaff] = useState<StaffType[]>([]);
   const getStaff = async () => {
-    const { data } = await axios.get("http://localhost:8000/staff/all-staff");
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_DOMAIN}/staff/all-staff`
+    );
     setStaff(data.results);
   };
   React.useEffect(() => {

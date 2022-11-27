@@ -1,10 +1,9 @@
 import React from "react";
 
-
 import { MainItems } from "@/components/pages/Home/MainItems";
 import { ItemsSkeleton } from "@/components/pages/Home/MainItems/Skeleton";
 
-import {MainPartType} from "@/@types/common/Home";
+import { MainPartType } from "@/@types/common/Home";
 
 export const MainPart: React.FC<MainPartType> = ({ styleList, clothes }) => {
   const SkeletonArr = [

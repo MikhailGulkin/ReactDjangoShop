@@ -14,10 +14,13 @@ export const Cart: React.FC = () => {
   const { items } = useSelector(cartSelector);
   if (!items.length) return <ClearCart />;
   const cartItems = items.map((obj) => (
-    <CartItem key={`${obj.pk} - ${obj.type} - ${obj.color} - ${obj.size}`} {...obj} />
+    <CartItem
+      key={`${obj.pk} - ${obj.type} - ${obj.color} - ${obj.size}`}
+      {...obj}
+    />
   ));
   return (
-    <div className="container mx-auto max-w-4xl mb-10 mt-16">
+    <div className="container mx-auto max-w-4xl mb-10 mt-16 и">
       <CartTop />
       {cartItems}
       <CartBottomDetails />

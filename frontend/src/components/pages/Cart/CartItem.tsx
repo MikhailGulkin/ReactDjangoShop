@@ -11,8 +11,8 @@ import { AddRemoveItem } from "@/components/pages/Cart/utilsComponents/AddRemove
 import { Favorite } from "@/components/pages/Cart/utilsComponents/Favorite";
 import { DeleteItem } from "@/components/pages/Cart/utilsComponents/DeleteItem";
 
-
 import { btnColorStyles } from "@/consts/Clothes";
+
 import { ProductClothesEnum } from "@/redux/productProperties/type";
 
 export const CartItem: React.FC<CartItemType> = ({
@@ -61,7 +61,7 @@ export const CartItem: React.FC<CartItemType> = ({
         <h1 className="text-2xl">$ {(price * count).toFixed(2)}</h1>
       </div>
       <div className="px-6 py-4">
-        <Favorite />
+        <Favorite id={pk} type={type} />
       </div>
       <div className="py-4  justify-end flex">
         <div>

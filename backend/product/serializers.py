@@ -22,15 +22,17 @@ class BaseProductSerializer(serializers.ModelSerializer):
         return obj.price * (1 - obj.discount / 100)
 
     def get_albumImages(self, obj):
-        abs_url = self.context.get('request').build_absolute_uri
-        if obj.clothes_images:
-            all_album_objs = obj.clothes_images.all()
-            return {
-                album_obj.color: [
-                    abs_url(image.clothes_image.url)
-                    for image in album_obj.album_images.get_queryset()
-                ] for album_obj in all_album_objs
-            }
+        if self.context.get('request'):
+            abs_url = self.context.get('request').build_absolute_uri
+            if obj.clothes_images:
+                all_album_objs = obj.clothes_images.all()
+                return {
+                    album_obj.color: [
+                        abs_url(image.clothes_image.url)
+                        for image in album_obj.album_images.get_queryset()
+                    ] for album_obj in all_album_objs
+                }
+        return {}
 
 
 class ProductTShirtSerializer(BaseProductSerializer):

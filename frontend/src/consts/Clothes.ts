@@ -13,6 +13,6 @@ export const btnColorStyles = {
     black: "bg-black",
     blue: "bg-blue-600",
     green: "bg-green-500",
-    white:''
+    white: "",
   },
 };

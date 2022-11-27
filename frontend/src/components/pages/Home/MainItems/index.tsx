@@ -1,17 +1,17 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { paths } from "@/routing/config";
 
-import { useSelector } from "react-redux";
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
+import { ProductClothesEnum } from "@/redux/productProperties/type";
 
 import { returnValidColor } from "@/utils/hasColor";
 
-import { ProductClothesEnum } from "@/redux/productProperties/type";
+import style from "./MainItems.module.scss";
 
 import { PropsType } from "@/@types/common/Home";
-import style from "./MainItems.module.scss";
 
 export const MainItems: React.FC<PropsType> = ({ stringClass, props }) => {
   const { albumImages, pk } = props;

@@ -1,6 +1,6 @@
 import React from "react";
-
 import { useSelector } from "react-redux";
+
 import { filterSelector } from "@/redux/filters/selectors";
 import { useAppDispatch } from "@/redux/store";
 import { setSortProperty, setChosen } from "@/redux/filters/slice";

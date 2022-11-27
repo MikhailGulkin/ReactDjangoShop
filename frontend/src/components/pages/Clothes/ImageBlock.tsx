@@ -2,15 +2,16 @@ import React from "react";
 import { useState } from "react";
 import Slider from "react-slick";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
 
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
 
-import { returnValidColors } from "@/utils/hasColor";
-
 import { sliderSettings } from "@/components/pages/Clothes/slider-settings";
-import { ImageBlockType } from "@/@types/pages/Clothes";
-import { useLocation } from "react-router";
+
+import { returnValidColors } from "@/utils/hasColor";
 import { getUrlName } from "@/utils/getUrlName";
+
+import { ImageBlockType } from "@/@types/pages/Clothes";
 
 export const ImageBlock: React.FC<ImageBlockType> = ({ albumImages, pk }) => {
   const { propertiesList } = useSelector(productPropertiesSelector);

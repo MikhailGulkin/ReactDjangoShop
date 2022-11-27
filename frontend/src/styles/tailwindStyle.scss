@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.customAuthInput{
+  @apply bg-white rounded border border-gray-300 focus:border-indigo-500
+  focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3
+  leading-8 transition-colors duration-200 ease-in-out w-full
+}
+.customAuthBtn {
+  @apply px-7 py-3 bg-blue-600 text-white font-medium text-sm
+  leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg
+  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800
+  active:shadow-lg transition duration-150 ease-in-out
+
+}

@@ -17,7 +17,7 @@ export const ClothesTShirt: React.FC = () => {
 
   const getItem = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/products/t_shirt/${productId}/`
+      `${process.env.REACT_APP_API_DOMAIN}/products/t_shirt/${productId}/`
     );
     setItem({ ...data, type: ProductClothesEnum.TSHIRT });
   };

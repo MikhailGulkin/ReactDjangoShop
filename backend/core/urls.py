@@ -1,10 +1,9 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, \
     SpectacularSwaggerView
-from django.conf.urls.static import static
-from django.conf import settings
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -13,7 +12,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
 
     # project endpoints
-    path('users/', include('users.urls')),
     path('products/', include('product.urls')),
     path('staff/', include('staff.urls')),
 ]

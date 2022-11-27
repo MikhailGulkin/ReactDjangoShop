@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export enum ColorTShirtEnum {
   BLACK = "black",
   BLUE = "blue",

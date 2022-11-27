@@ -1,24 +1,29 @@
 import React from "react";
+import { useLocation } from "react-router";
+import { useSelector } from "react-redux";
+
+import { useAppDispatch } from "@/redux/store";
+import { productPropFind } from "@/redux/productProperties/selectors";
+import { setFavorite } from "@/redux/favoriteItem/slice";
+import { favoriteProductSelector } from "@/redux/favoriteItem/selectors";
 
 import { ColorButtons } from "@/components/pages/Clothes/utilsComponents/ColorButtons";
 import { SizeOptions } from "@/components/pages/Clothes/utilsComponents/SizeOptions";
 
-import { onClickAdd } from "@/utils/addRemoveItem";
-
+import { RedHeart } from "@/components/ui/svg/RedHeart";
 import { Heart } from "@/components/ui/svg/Heart";
 
-import { useAppDispatch } from "@/redux/store";
-import { useSelector } from "react-redux";
-import { productPropFind } from "@/redux/productProperties/selectors";
+import { onClickAdd } from "@/utils/addRemoveItem";
+import { getUrlName } from "@/utils/getUrlName";
 
 import { ClothesBottomType } from "@/@types/pages/Clothes";
-import { getUrlName } from "@/utils/getUrlName";
-import { useLocation } from "react-router";
+
+import { ProductClothesEnum } from "@/redux/productProperties/type";
 
 export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
   const dispatch = useAppDispatch();
   const getClothesType = getUrlName(useLocation());
-
+  const item = useSelector(favoriteProductSelector(getClothesType, prop.pk));
   const propItem = useSelector(productPropFind(id, getClothesType));
   return (
     <>
@@ -42,8 +47,19 @@ export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
         >
           Add to cart
         </button>
-        <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-          <Heart />
+        <button
+          onClick={() =>
+            dispatch(
+              setFavorite({
+                id: prop.pk,
+                type: getClothesType as ProductClothesEnum,
+              })
+            )
+          }
+          className="rounded-full w-10 h-10  p-0 border border-2 border-black inline-flex
+          items-center justify-center text-gray-500 ml-4 "
+        >
+          {item ? <RedHeart /> : <Heart />}
         </button>
       </div>
     </>

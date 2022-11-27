@@ -7,7 +7,6 @@ from django.contrib import admin
 from .models import CustomUser
 
 
-
 # Overloading perms for delete toke-user
 class _OutstandingTokenAdmin(OutstandingTokenAdmin):
 

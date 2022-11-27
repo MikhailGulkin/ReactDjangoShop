@@ -1,21 +1,25 @@
 import React from "react";
-import { ProductItem } from "@/components/pages/Shop/ProductItem";
-
-import { fetchProducts } from "@/redux/productItems/asyncAction";
-import { useAppDispatch } from "@/redux/store";
-import { ProductStatus } from "@/redux/productItems/types";
 import { useSelector } from "react-redux";
-import { productItemsSelector } from "@/redux/productItems/selectors";
 
+import { useAppDispatch } from "@/redux/store";
+import { fetchProducts } from "@/redux/productItems/asyncAction";
+import { productItemsSelector } from "@/redux/productItems/selectors";
+import { ProductStatus } from "@/redux/productItems/types";
+import { filterSelector } from "@/redux/filters/selectors";
+
+import { ProductItem } from "@/components/pages/Shop/ProductItem";
 import { SortPopup } from "@/components/pages/Shop/SortPopup";
 import { Categories } from "@/components/pages/Shop/ProductItem/Categories";
-import { filterSelector } from "@/redux/filters/selectors";
+
+import { ProductHoodie, ProductTShirt } from "@/@types/pages/Product";
 
 export const Shop: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(productItemsSelector);
+
   const { currentSort, sortChosen, currentCategory } =
     useSelector(filterSelector);
+
   const getProducts = async () => {
     dispatch(
       fetchProducts({
@@ -25,12 +29,14 @@ export const Shop: React.FC = () => {
       })
     );
   };
+
+  const products = items.map((obj: ProductTShirt | ProductHoodie) => (
+    <ProductItem key={obj.pk} {...obj} />
+  ));
+
   React.useEffect(() => {
     getProducts();
   }, [currentSort, currentCategory]);
-  const products = items.map((obj: any) => (
-    <ProductItem key={obj.pk} {...obj} />
-  ));
 
   return (
     <section className="mx-auto max-w-6xl">

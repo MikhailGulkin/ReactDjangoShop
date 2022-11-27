@@ -1,17 +1,14 @@
-import React from 'react';
-import {ImageBlock} from "@/components/pages/Clothes/ImageBlock";
-import {ClothesHeader} from "@/components/pages/Clothes/ClothesHeader";
-import {ClothesBottom} from "@/components/pages/Clothes/ClothesBottom";
-import {ProductHoodie, ProductTShirt} from "@/@types/pages/Product";
+import React from "react";
 
-type ClothesBlockType = {
-    item: ProductTShirt | ProductHoodie | undefined,
-    id: number
-}
+import { ImageBlock } from "@/components/pages/Clothes/ImageBlock";
+import { ClothesHeader } from "@/components/pages/Clothes/ClothesHeader";
+import { ClothesBottom } from "@/components/pages/Clothes/ClothesBottom";
 
-export const ClothesBlock:React.FC<ClothesBlockType> = ({item, id}) => {
- return (
-      <section className="text-gray-600 body-font overflow-hidden">
+import { ClothesBlockType } from "@/@types/pages/Clothes";
+
+export const ClothesBlock: React.FC<ClothesBlockType> = ({ item, id }) => {
+  return (
+    <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <ImageBlock albumImages={item?.albumImages} pk={id} />
@@ -22,6 +19,5 @@ export const ClothesBlock:React.FC<ClothesBlockType> = ({item, id}) => {
         </div>
       </div>
     </section>
- );
+  );
 };
-

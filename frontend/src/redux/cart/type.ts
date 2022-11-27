@@ -20,7 +20,3 @@ export interface CartSliceState {
   totalPrice: number;
   items: CartItemType[];
 }
-
-export type pkType = {
-  pk: number;
-};

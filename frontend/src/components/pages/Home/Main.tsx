@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import { Link } from "react-router-dom";
+
 import { paths } from "@/routing/config";
+
 import { MainPart } from "@/components/common/MainPart";
 
 import { ProductTShirt } from "@/@types/pages/Product";
@@ -11,7 +12,7 @@ export const Main: React.FC = () => {
   const [clothes, setClothes] = useState<ProductTShirt[]>([]);
   const getClothes = async () => {
     const { data } = await axios.get(
-      "http://localhost:8000/products/all-t_shirts/"
+      `${process.env.REACT_APP_API_DOMAIN}/products/all-t_shirts/`
     );
     setClothes(data.results);
   };

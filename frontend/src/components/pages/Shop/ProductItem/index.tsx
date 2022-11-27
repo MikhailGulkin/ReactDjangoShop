@@ -1,15 +1,15 @@
 import React from "react";
-
-import { paths } from "@/routing/config";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { paths } from "@/routing/config";
+
 import { productPropertiesSelector } from "@/redux/productProperties/selectors";
+import { ProductClothesEnum } from "@/redux/productProperties/type";
 
 import { returnValidColor } from "@/utils/hasColor";
 
 import { ProductHoodie, ProductTShirt } from "@/@types/pages/Product";
-import { ProductClothesEnum } from "@/redux/productProperties/type";
 
 export const ProductItem: React.FC<ProductTShirt | ProductHoodie> = ({
   pk,

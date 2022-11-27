@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItemType, CartSliceState, pkType } from "@/redux/cart/type";
+import { CartItemType, CartSliceState } from "@/redux/cart/type";
 import { getItemsLS, setItemsLS } from "@/redux/cart/service";
 import { CalcTotal } from "@/utils/calcTotal";
 import { getPropertiesLS } from "@/redux/productProperties/service";
@@ -22,7 +22,7 @@ const cartSlice = createSlice({
           obj.color === action.payload.color &&
           obj.size === action.payload.size
       );
-      // Если у товара выбрали свойства
+
       if (findProp) {
         const findItem = state.items.find(
           (obj) =>
@@ -41,7 +41,6 @@ const cartSlice = createSlice({
         } else {
           findItem.count++;
         }
-        // Если свойство товара по умолчанию
       } else {
         const findItem = state.items.find(
           (obj) =>
