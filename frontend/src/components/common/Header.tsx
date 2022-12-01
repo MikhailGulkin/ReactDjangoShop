@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
   const expression = scrollPosition > 0 ? `border-b border-b-blue-100` : "";
   return (
     <header
-      className={`text-gray-600 body-font ${expression} w-full fixed top-0 z-10 bg-gray-50`}
+      className={`text-gray-600 body-font ${expression} w-full  fixed top-0 z-10 bg-gray-50`}
     >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link

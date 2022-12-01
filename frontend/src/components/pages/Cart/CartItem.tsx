@@ -15,7 +15,7 @@ import { btnColorStyles } from "@/consts/Clothes";
 
 import { ProductClothesEnum } from "@/redux/productProperties/type";
 
-export const CartItem: React.FC<CartItemType> = ({
+export const CartItem = ({
   pk,
   title,
   price,
@@ -23,7 +23,7 @@ export const CartItem: React.FC<CartItemType> = ({
   type,
   count,
   size,
-}) => {
+}: CartItemType) => {
   const item = useSelector(cartItemSelector(pk, color, type, size));
 
   return (

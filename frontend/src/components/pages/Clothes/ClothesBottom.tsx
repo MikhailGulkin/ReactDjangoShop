@@ -20,7 +20,7 @@ import { ClothesBottomType } from "@/@types/pages/Clothes";
 
 import { ProductClothesEnum } from "@/redux/productProperties/type";
 
-export const ClothesBottom: React.FC<ClothesBottomType> = ({ prop, id }) => {
+export const ClothesBottom = ({ prop, id }: ClothesBottomType) => {
   const dispatch = useAppDispatch();
   const getClothesType = getUrlName(useLocation());
   const item = useSelector(favoriteProductSelector(getClothesType, prop.pk));

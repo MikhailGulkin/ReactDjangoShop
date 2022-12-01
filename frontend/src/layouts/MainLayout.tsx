@@ -24,7 +24,7 @@ export const MainLayout: React.FC = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <div className="mb-auto">
+      <div className="mb-auto mt-20">
         <Outlet />
       </div>
       <Footer />
