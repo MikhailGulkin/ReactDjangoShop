@@ -12,8 +12,8 @@ export const App: React.FC = () => {
   return (
     <Routes>
       <Route path={paths.main} element={<MainLayout />}>
-        {Paths.map((obj, index) => (
-          <Route key={index} {...obj} />
+        {Paths.map((obj) => (
+          <Route {...obj} />
         ))}
       </Route>
     </Routes>
